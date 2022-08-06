@@ -2,17 +2,21 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/tailwind': ^0.2.5
+  '@tailwindcss/forms': ^0.5.2
   astro: ^1.0.0-rc.7
   autoprefixer: ^10.4.8
   postcss: ^8.4.14
   tailwindcss: ^3.1.8
+  windy-radix-palette: ^0.1.1
 
 devDependencies:
   '@astrojs/tailwind': 0.2.5
+  '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.8
   astro: 1.0.0-rc.7
   autoprefixer: 10.4.8_postcss@8.4.14
   postcss: 8.4.14
   tailwindcss: 3.1.8
+  windy-radix-palette: 0.1.1
 
 packages:
 
@@ -461,6 +465,15 @@ packages:
     dependencies:
       '@proload/core': 0.3.2
       tsm: 2.2.2
+    dev: true
+
+  /@tailwindcss/forms/0.5.2_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-pSrFeJB6Bg1Mrg9CdQW3+hqZXAKsBrSG9MAfFLKy1pVA4Mb4W7C0k7mEhlmS2Dfo/otxrQOET7NJiJ9RrS563w==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.1.8
     dev: true
 
   /@types/acorn/4.0.6:
@@ -2261,6 +2274,11 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /mini-svg-data-uri/1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+    dev: true
+
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
@@ -3321,6 +3339,10 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       string-width: 5.1.2
+    dev: true
+
+  /windy-radix-palette/0.1.1:
+    resolution: {integrity: sha512-eG4VtEJgOqTlU3gdtTSfXufB3SMz1VxQl/SH/iM49QarIBcJwwrwHLGzpN2Ko81HlFS2khS9Iamm2WHiZb94kA==}
     dev: true
 
   /wrap-ansi/8.0.1:
