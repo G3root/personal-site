@@ -1,0 +1,117 @@
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/slateDark.css";
+@import "@radix-ui/colors/blackA.css";
+@import "@radix-ui/colors/whiteA.css";
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blueDark.css";
+@import "@radix-ui/colors/yellow.css";
+@import "@radix-ui/colors/yellowDark.css";
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/redDark.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/greenDark.css";
+@import "@radix-ui/colors/orange.css";
+@import "@radix-ui/colors/orangeDark.css";
+@import "@radix-ui/colors/pink.css";
+@import "@radix-ui/colors/pinkDark.css";
+@import "@radix-ui/colors/violet.css";
+@import "@radix-ui/colors/violetDark.css";
+
+:root {
+  --hiContrast: var(--slate12);
+  --loContrast: white;
+  --c-bg: #fff;
+  --c-scrollbar: #eee;
+  --c-scrollbar-hover: #bbb;
+}
+
+.dark {
+  --hiContrast: var(--slate12);
+  --loContrast: var(--slate1);
+  --c-bg: #050505;
+  --c-scrollbar: #111;
+  --c-scrollbar-hover: #222;
+}
+
+body {
+  color: var(--hiContrast);
+  background-color: var(--loContrast);
+}
+
+html {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow: scroll;
+}
+
+/* credit: antfu https://antfu.me/ */
+
+* {
+  scrollbar-color: var(--c-scrollbar) var(--c-bg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--c-bg);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-hover);
+}
+
+/* credit: paco coursey https://paco.me/ */
+[data-animation-controller="false"] [data-animate] {
+  -webkit-animation: none;
+  animation: none;
+}
+[data-animate] {
+  --stagger: 0;
+  --delay: 120ms;
+  --start: 0ms;
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    -webkit-animation: enter 0.6s both;
+    animation: enter 0.6s both;
+    -webkit-animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
+    animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
+  }
+}
+@-webkit-keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: optional;
+  font-style: swap;
+  font-named-instance: "Regular";
+  src: url("/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+}
