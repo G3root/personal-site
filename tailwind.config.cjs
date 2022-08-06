@@ -1,7 +1,24 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/**/*.{astro,html,ts,tsx}'],
+    darkMode: "class",
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["Inter var", ...fontFamily.sans],
+            },
+            colors: {
+                "lo-contrast": "var(--loContrast)",
+                "hi-contrast": "var(--hiContrast)",
+            },
+        },
     },
-    plugins: [],
+    plugins: [
+        require("@tailwindcss/forms")({
+            strategy: "class", // only generate classes
+        }),
+    ],
+    presets: [require("windy-radix-palette")],
 };
