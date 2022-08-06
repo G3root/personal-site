@@ -10,7 +10,11 @@ specifiers:
   postcss: ^8.4.14
   postcss-import: ^14.1.0
   tailwindcss: ^3.1.8
+  waystone: ^0.2.6
   windy-radix-palette: ^0.1.1
+
+dependencies:
+  waystone: 0.2.6
 
 devDependencies:
   '@astrojs/tailwind': 0.2.5
@@ -2461,6 +2465,10 @@ packages:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
 
+  /morphdom/2.6.1:
+    resolution: {integrity: sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==}
+    dev: false
+
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -3798,6 +3806,13 @@ packages:
   /vscode-uri/3.0.3:
     resolution: {integrity: sha512-EcswR2S8bpR7fD0YPeS7r2xXExrScVMxg4MedACaWHEtx9ftCF/qHG1xGkolzTPcEmjTavCQgbVzHUIdTMzFGA==}
     dev: true
+
+  /waystone/0.2.6:
+    resolution: {integrity: sha512-QcID7nm4wIF8tbTOS6N9qvUebjhjo1RNGYLrLdeqx/d74nixdIYX8F2jT0XG0mWqkKErWb7IFjKJNk1SqU6ljg==}
+    engines: {node: '>=10'}
+    dependencies:
+      morphdom: 2.6.1
+    dev: false
 
   /wcwidth/1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
