@@ -6,6 +6,8 @@ export interface Props {
 
 import '~/styles/main.css';
 const { title } = Astro.props as Props;
+
+import Navbar from '~/components/navbar/index.astro';
 ---
 
 <!DOCTYPE html>
@@ -19,6 +21,7 @@ const { title } = Astro.props as Props;
 </head>
 
 <body>
+	<Navbar />
 	<main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
 		<slot />
 	</main>
