@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/solid-js': ^0.4.1
   '@astrojs/tailwind': ^0.2.5
+  '@isaacs/ttlcache': ^1.2.0
   '@prisma/client': ^4.1.1
   '@radix-ui/colors': ^0.1.8
   '@solid-aria/accordion': ^0.0.1
@@ -20,6 +21,7 @@ specifiers:
   windy-radix-palette: ^0.1.1
 
 dependencies:
+  '@isaacs/ttlcache': 1.2.0
   '@prisma/client': 4.1.1_prisma@4.1.1
   '@solid-aria/accordion': 0.0.1_solid-js@1.4.8
   waystone: 0.2.6
@@ -445,6 +447,11 @@ packages:
     resolution: {integrity: sha512-dBxCQKIxvsZvW2IBt3KsqrCfaw2nV6o6a8xsloJn/hjW0ayeyhKuiiMtTwW3/WGNPP7ZRyDbtuiUEjMwif1ENQ==}
     dependencies:
       '@babel/runtime': 7.18.9
+    dev: false
+
+  /@isaacs/ttlcache/1.2.0:
+    resolution: {integrity: sha512-BgSn1R16Aba33Qq9sA47tndBvLzJZeboJe9t+0bMlyb0Q01cvtVbLzE2gowMKRFzjaR7qb8VaPw0I8EC5dn8iA==}
+    engines: {node: '>=12'}
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
