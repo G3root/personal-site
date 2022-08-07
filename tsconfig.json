@@ -24,5 +24,8 @@
     },
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "types": [
+      "unplugin-icons/types/solid"
+    ]
   }
 }
