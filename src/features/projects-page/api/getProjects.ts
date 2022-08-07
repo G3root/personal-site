@@ -1,5 +1,3 @@
-import { Prisma } from "@prisma/client";
-
 type GetAllProjects = {
   data: {
     id: number;
