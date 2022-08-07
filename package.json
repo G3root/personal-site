@@ -29,6 +29,7 @@
     "@isaacs/ttlcache": "^1.2.0",
     "@prisma/client": "^4.1.1",
     "@solid-aria/accordion": "^0.0.1",
+    "solid-headless": "^0.12.4",
     "waystone": "^0.2.6"
   }
 }

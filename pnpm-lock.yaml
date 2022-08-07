@@ -15,6 +15,7 @@ specifiers:
   postcss: ^8.4.14
   postcss-import: ^14.1.0
   prisma: ^4.1.1
+  solid-headless: ^0.12.4
   solid-js: ^1.4.3
   tailwindcss: ^3.1.8
   waystone: ^0.2.6
@@ -24,6 +25,7 @@ dependencies:
   '@isaacs/ttlcache': 1.2.0
   '@prisma/client': 4.1.1_prisma@4.1.1
   '@solid-aria/accordion': 0.0.1_solid-js@1.4.8
+  solid-headless: 0.12.4_solid-js@1.4.8
   waystone: 0.2.6
 
 devDependencies:
@@ -3649,8 +3651,27 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /solid-headless/0.12.4_solid-js@1.4.8:
+    resolution: {integrity: sha512-SF5xbqrAYhx5n4vxOa0V6ILiWZ/nXgJUWQg1bcNoRbNjH7d918oUA4A5/ywzt57C5NdNzEklhgtyB+wg234xcw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      solid-js: ^1.2
+    dependencies:
+      solid-js: 1.4.8
+      solid-use: 0.5.0_solid-js@1.4.8
+    dev: false
+
   /solid-js/1.4.8:
     resolution: {integrity: sha512-XErZdnnYYXF7OwGSUAPcua2y5/ELB/c53zFCpWiEGqxTNoH1iQghzI8EsHJXk06sNn+Z/TGhb8bPDNNGSgimag==}
+
+  /solid-use/0.5.0_solid-js@1.4.8:
+    resolution: {integrity: sha512-z1AaS99SL3gNP70K4+XIVKGXDRI56m3Q6Q4X63bfgw0kaN6cwT4SAyFZAmIRjHcvf5rOMRQfNgUV4YVDha+LcQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      solid-js: ^1.2
+    dependencies:
+      solid-js: 1.4.8
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
