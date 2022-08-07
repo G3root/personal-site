@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.1.1",
+    "@solid-aria/accordion": "^0.0.1",
     "waystone": "^0.2.6"
   }
 }
