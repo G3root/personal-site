@@ -18,10 +18,12 @@
     "cssnano": "^5.1.12",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
+    "prisma": "^4.1.1",
     "tailwindcss": "^3.1.8",
     "windy-radix-palette": "^0.1.1"
   },
   "dependencies": {
+    "@prisma/client": "^4.1.1",
     "waystone": "^0.2.6"
   }
 }
