@@ -2,11 +2,13 @@
 import PageTitle from '~/components/page-title/index.astro';
 import PageSubtitle from '~/components/page-subtitle/index.astro';
 import Layout from '~/layouts/Layout.astro';
+import { ProjectList } from '~/features/projects-page/components';
 ---
 
 <Layout title="projects">
     <div class="flex flex-col">
         <PageTitle title="Projects" />
         <PageSubtitle content="List of projects I recently worked on and working on." />
+        <ProjectList client:load />
     </div>
 </Layout>
