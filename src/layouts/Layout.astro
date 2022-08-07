@@ -19,14 +19,14 @@ import Navbar from '~/components/navbar/index.astro';
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<title>{title}</title>
 	<script is:inline>
-		const theme = typeof localStorage !== "undefined" && localStorage.getItem("theme") ? localStorage.getItem("theme") : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; "light" === theme ? (document.documentElement.classList.remove("dark"), document.documentElement.classList.remove("dark-theme")) : (document.documentElement.classList.add("dark"), document.documentElement.classList.add("dark-theme"));
+		const theme = typeof localStorage !== "undefined" && localStorage.getItem("theme") ? localStorage.getItem("theme") : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; "light" === theme ? (document.documentElement.classList.remove("dark-theme")) : (document.documentElement.classList.add("dark-theme"));
 	</script>
 	<script>
 		import "waystone";
 		import { on } from 'waystone';
 
 		on('load', () => {
-			const theme = typeof localStorage !== "undefined" && localStorage.getItem("theme") ? localStorage.getItem("theme") : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; "light" === theme ? (document.documentElement.classList.remove("dark"), document.documentElement.classList.remove("dark-theme")) : (document.documentElement.classList.add("dark"), document.documentElement.classList.add("dark-theme"));
+			const theme = typeof localStorage !== "undefined" && localStorage.getItem("theme") ? localStorage.getItem("theme") : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; "light" === theme ? (document.documentElement.classList.remove("dark-theme")) : (document.documentElement.classList.add("dark-theme"));
 		});
 	</script>
 

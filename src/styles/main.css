@@ -25,7 +25,7 @@
   --c-scrollbar-hover: #bbb;
 }
 
-.dark {
+.dark-theme {
   --hiContrast: var(--slate12);
   --loContrast: var(--slate1);
   --c-bg: #050505;
