@@ -5,7 +5,6 @@ import { PROJECT_CACHE_KEY } from "~/constants";
 
 export async function get({ params, request }: APIContext) {
   if (cache.has(PROJECT_CACHE_KEY)) {
-    console.log("cache");
     const data = await cache.get(PROJECT_CACHE_KEY);
     return {
       body: JSON.stringify({
