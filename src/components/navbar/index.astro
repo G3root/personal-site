@@ -1,5 +1,6 @@
 ---
 import Navlinks from "./Navlinks.astro";
+import { ThemeToggle } from "./theme-toggle";
 ---
 
 <div class="flex items-center w-full justify-between px-7 md:px-32 mt-8 mb-14">
@@ -10,6 +11,6 @@ import Navlinks from "./Navlinks.astro";
         <Navlinks />
     </div>
     <div>
-        <!-- <ThemeModeSwitch /> -->
+        <ThemeToggle client:load />
     </div>
 </div>
