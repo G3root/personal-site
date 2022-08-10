@@ -26,8 +26,8 @@
 }
 
 .dark-theme {
-  --hiContrast: var(--slate12);
-  --loContrast: var(--slate1);
+  --hiContrast: white;
+  --loContrast: black;
   --c-bg: #050505;
   --c-scrollbar: #111;
   --c-scrollbar-hover: #222;
