@@ -5,7 +5,10 @@ import SocialLinks from "~/components/social-links/index.astro";
 
 <Layout title="Welcome to Astro.">
   <section class="flex flex-col sm:mb-0 mb-20">
-    <h1 class="text-5xl font-extrabold tracking-tighter sm:text-7xl mb-8 max-w-3xl">
+    <div class="mb-4 sm:hidden block">
+      <img src="/static/image-2.jpg" width="80" height="80" class="rounded-full" alt="">
+    </div>
+    <h1 class="text-5xl font-extrabold tracking-tighter sm:text-7xl mb-4 max-w-3xl">
       Developer with an appetite for interfaces and websites.
     </h1>
 
@@ -17,12 +20,13 @@ import SocialLinks from "~/components/social-links/index.astro";
       </p>
 
       <p>
-        I'm currently working as a <em>Software Engineer Intern</em> at{" "}
+        I'm currently working as a <u>Software Engineer Intern</u> at{" "}
         <span class="underline decoration-hi-contrast underline-offset-2 decoration-dotted">
           TWC Innovations.
         </span>
       </p>
     </div>
+    <SocialLinks />
   </section>
-  <SocialLinks />
+
 </Layout>
