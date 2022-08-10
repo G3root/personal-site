@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...fontFamily.sans],
+        mono: ["JetBrainsMono", ...fontFamily.mono],
       },
       colors: {
         "lo-contrast": "var(--loContrast)",

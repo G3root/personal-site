@@ -119,3 +119,11 @@ html {
   font-named-instance: "Regular";
   src: url("/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
 }
+
+@font-face {
+  font-family: "JetBrainsMono";
+  font-weight: 400;
+  font-display: optional;
+  font-style: swap;
+  src: url("/fonts/jetbrain-regular.woff2") format("woff2");
+}
