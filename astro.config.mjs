@@ -8,5 +8,8 @@ export default defineConfig({
   integrations: [solid()],
   vite: {
     plugins: [Icons({ compiler: "solid" })],
+    ssr: {
+      external: ["svgo"],
+    }
   },
 });
