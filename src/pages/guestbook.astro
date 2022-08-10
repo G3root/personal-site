@@ -2,13 +2,14 @@
 import PageTitle from "~/components/page-title/index.astro";
 import PageSubtitle from "~/components/page-subtitle/index.astro";
 import Layout from "~/layouts/Layout.astro";
+import Banner from "~/components/guest-book-banner/index.astro"
 ---
 
 <Layout title="projects">
   <div class="flex flex-col">
     <PageTitle title="Guestbook" />
     <PageSubtitle
-      content="Leave a comment below. It could be anything – appreciation, information, wisdom, or even humor. Surprise me!"
-    />
+      content="Leave a comment below. It could be anything – appreciation, information, wisdom, or even humor. Surprise me!" />
+    <Banner />
   </div>
 </Layout>
