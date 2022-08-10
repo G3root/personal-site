@@ -10,6 +10,6 @@ export default defineConfig({
     plugins: [Icons({ compiler: "solid" })],
     ssr: {
       external: ["svgo"],
-    }
+    },
   },
 });

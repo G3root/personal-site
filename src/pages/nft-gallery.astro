@@ -1,14 +1,14 @@
 ---
-import PageTitle from '~/components/page-title/index.astro';
-import PageSubtitle from '~/components/page-subtitle/index.astro';
-import Layout from '~/layouts/Layout.astro';
-import { NftList } from '~/features/nft-page/components';
+import PageTitle from "~/components/page-title/index.astro";
+import PageSubtitle from "~/components/page-subtitle/index.astro";
+import Layout from "~/layouts/Layout.astro";
+import { NftList } from "~/features/nft-page/components";
 ---
 
 <Layout title="projects">
-    <div class="flex flex-col">
-        <PageTitle title="NFT Gallery" />
-        <PageSubtitle content="An overview of NFTs in my wallet:" />
-        <NftList client:load />
-    </div>
+  <div class="flex flex-col">
+    <PageTitle title="NFT Gallery" />
+    <PageSubtitle content="An overview of NFTs in my wallet:" />
+    <NftList client:load />
+  </div>
 </Layout>

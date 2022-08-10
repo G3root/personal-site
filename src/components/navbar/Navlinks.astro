@@ -2,20 +2,23 @@
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-    { to: "/", label: "Home" },
-    { to: "/guestbook", label: "Guestbook" },
-    { to: "/projects", label: "Projects" },
-    { to: "/nft-gallery", label: "NFT Gallery" },
+  { to: "/", label: "Home" },
+  { to: "/guestbook", label: "Guestbook" },
+  { to: "/projects", label: "Projects" },
+  { to: "/nft-gallery", label: "NFT Gallery" },
 ];
-
 ---
 
 <div class="flex items-center gap-x-2">
-    {navItems.map((item) => (
-    <a class="font-normal text-slate-11 rounded-lg p-1 transition duration-100 ease-in hover:bg-slate-3 sm:px-3 sm:py-2 md:inline-block"
-        href={item.to} aria-current={`${pathname===item.to ? 'page' : 'false' }`}>
+  {
+    navItems.map((item) => (
+      <a
+        class="font-normal text-slate-11 rounded-lg p-1 transition duration-100 ease-in hover:bg-slate-3 sm:px-3 sm:py-2 md:inline-block"
+        href={item.to}
+        aria-current={`${pathname === item.to ? "page" : "false"}`}
+      >
         {item.label}
-    </a>
-    ))}
-
+      </a>
+    ))
+  }
 </div>

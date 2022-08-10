@@ -1,5 +1,4 @@
 :root {
-
   --theme-bg: var(--hi-contrast);
   --theme-txt: var(--hi-contrast);
   --theme-btn-act: var(--blue5);
@@ -26,31 +25,30 @@ $colors: hiContrast blue yellow red green orange pink violet;
   }
 }
 
-
-[aria-current="page"]{
+[aria-current="page"] {
   font-weight: 600;
   color: var(--theme-txt);
 }
 
-[aria-current="false"]{
+[aria-current="false"] {
   font-weight: 400;
   color: var(--slate11);
 }
 
-.theme-btn  {
+.theme-btn {
   color: var(--theme-txt);
-  &:hover{
+  &:hover {
     background-color: var(--theme-btn-hov);
   }
-  &:active{
+  &:active {
     background-color: var(--theme-btn-act);
   }
 }
 
-.theme-txt  {
+.theme-txt {
   color: var(--theme-txt);
 }
 
-.theme-bg  {
+.theme-bg {
   background-color: var(--theme-bg);
 }
