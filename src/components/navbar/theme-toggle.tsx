@@ -1,14 +1,11 @@
-import { createStorageSignal } from "@solid-primitives/storage";
+import { useStore } from "@nanostores/solid";
 import { createEffect, on, Show } from "solid-js";
+import { setTheme, themeAtom } from "~/store";
 import Moon from "~icons/heroicons-outline/moon";
 import Sun from "~icons/heroicons-outline/sun";
 
 export const ThemeToggle = () => {
-  const [theme, setTheme] = createStorageSignal<"dark" | "light">(
-    "theme",
-    "light",
-    { api: localStorage }
-  );
+  const theme = useStore<any, "dark" | "light">(themeAtom);
 
   const isDark = () => (theme() === "dark" ? true : false);
 
@@ -29,15 +26,9 @@ export const ThemeToggle = () => {
   return (
     <button
       type="button"
-      class="flex items-center p-1 rounded-md"
+      class="flex items-center p-1 rounded-md theme-btn"
       onClick={() => {
-        if (theme() === "light") {
-          setTheme("dark");
-          localStorage.setItem("theme", "dark");
-        } else {
-          setTheme("light");
-          localStorage.setItem("theme", "light");
-        }
+        setTheme(theme);
       }}
     >
       <span aria-hidden class="dark:hidden block">
