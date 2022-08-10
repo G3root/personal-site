@@ -1,16 +1,17 @@
 ---
 import Navlinks from "./Navlinks.astro";
+import { ThemeColorSwitch } from "./theme-color-switch";
 import { ThemeToggle } from "./theme-toggle";
 ---
 
 <div class="flex items-center w-full justify-between px-7 md:px-32 mt-8 mb-14">
-    <div>
-        <!-- <ThemeColorSwitch /> -->
-    </div>
-    <div class="md:block hidden">
-        <Navlinks />
-    </div>
-    <div>
-        <ThemeToggle client:load />
-    </div>
+  <div>
+    <ThemeColorSwitch client:load />
+  </div>
+  <div class="md:block hidden">
+    <Navlinks />
+  </div>
+  <div>
+    <ThemeToggle client:load />
+  </div>
 </div>
