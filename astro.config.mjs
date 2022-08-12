@@ -1,15 +1,17 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
 import solid from "@astrojs/solid-js";
-import Icons from "unplugin-icons/vite";
+import node from '@astrojs/node';
+
+import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [solid()],
+  integrations: [solid(), preact({ compat: true })],
+  output: 'server',
+  adapter: node(),
   vite: {
-    plugins: [Icons({ compiler: "solid" })],
     ssr: {
-      external: ["svgo"],
-    },
-  },
+      external: ["svgo"]
+    }
+  }
 });
