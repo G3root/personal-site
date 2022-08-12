@@ -6,7 +6,7 @@ export interface Props {
 
 import "~/styles/main.css";
 import "~/styles/theme.scss";
-const { title, maxThemeIndex = MAXIMUM_THEME_INDEX + 1 } = Astro.props as Props;
+const { title, maxThemeIndex = MAXIMUM_THEME_INDEX } = Astro.props as Props;
 
 import Navbar from "~/components/navbar/index.astro";
 import { MAXIMUM_THEME_INDEX } from "~/constants";
@@ -38,6 +38,20 @@ import { MAXIMUM_THEME_INDEX } from "~/constants";
     "number" == typeof index &&
       index < maxIndex &&
       document.documentElement.setAttribute("data-theme-index", `${index}`);
+
+
+    function toggleThemeButton() {
+      const root = document.documentElement
+      const maxIndex = Number(root.getAttribute("data-max-theme-index"))
+      const themeIndex = Number(root.getAttribute("data-theme-index"))
+      const isLessThanMax = themeIndex < maxIndex
+      const currentIndex = isLessThanMax ? String(themeIndex + 1) : String(0)
+      localStorage.setItem("theme-index", currentIndex)
+      root.setAttribute("data-theme-index", currentIndex)
+    }
+
+    window.toggleThemeButton = toggleThemeButton;
+
   </script>
 
   <script is:inline>

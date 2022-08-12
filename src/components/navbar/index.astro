@@ -1,12 +1,12 @@
 ---
 import Navlinks from "./Navlinks.astro";
-import { ThemeColorSwitch } from "./theme-color-switch";
 import { Icon } from "astro-icon";
 ---
 
 <div class="flex items-center w-full justify-between px-7 md:px-32 mt-8 mb-14">
   <div>
-    <ThemeColorSwitch client:load />
+    <button type="button" aria-label="toggle theme color" class="p-3 rounded-full theme-bg"
+      onclick="window.toggleThemeButton()" />
   </div>
   <div class="md:block hidden">
     <Navlinks />
