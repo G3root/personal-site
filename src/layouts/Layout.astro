@@ -14,48 +14,64 @@ import { MAXIMUM_THEME_INDEX } from "~/constants";
 
 <!DOCTYPE html>
 <html lang="en" data-max-theme-index={maxThemeIndex} data-theme-index="0">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
-    <script is:inline>
-      const maxIndex =
-          "undefined" != typeof window &&
-          window.document.documentElement.getAttribute("data-max-theme-index")
-            ? Number(
-                window.document.documentElement.getAttribute(
-                  "data-max-theme-index"
-                )
-              )
-            : 0,
-        index =
-          "undefined" != typeof localStorage &&
-          localStorage.getItem("theme-index")
-            ? Number(localStorage.getItem("theme-index"))
-            : 0;
-      "number" == typeof index &&
-        index < maxIndex &&
-        document.documentElement.setAttribute("data-theme-index", `${index}`);
-    </script>
 
-    <script is:inline>
-      const theme =
-        typeof localStorage !== "undefined" && localStorage.getItem("theme")
-          ? localStorage.getItem("theme")
-          : window.matchMedia("(prefers-color-scheme: dark)").matches
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>{title}</title>
+  <script is:inline>
+    const maxIndex =
+      "undefined" != typeof window &&
+        window.document.documentElement.getAttribute("data-max-theme-index")
+        ? Number(
+          window.document.documentElement.getAttribute(
+            "data-max-theme-index"
+          )
+        )
+        : 0,
+      index =
+        "undefined" != typeof localStorage &&
+          localStorage.getItem("theme-index")
+          ? Number(localStorage.getItem("theme-index"))
+          : 0;
+    "number" == typeof index &&
+      index < maxIndex &&
+      document.documentElement.setAttribute("data-theme-index", `${index}`);
+  </script>
+
+  <script is:inline>
+    const theme =
+      typeof localStorage !== "undefined" && localStorage.getItem("theme")
+        ? localStorage.getItem("theme")
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
           ? "dark"
           : "light";
-      "light" === theme
-        ? document.documentElement.classList.remove("dark-theme")
-        : document.documentElement.classList.add("dark-theme");
-    </script>
-  </head>
+    "light" === theme
+      ? document.documentElement.classList.remove("dark-theme")
+      : document.documentElement.classList.add("dark-theme");
 
-  <body>
-    <Navbar />
-    <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
-      <slot />
-    </main>
-  </body>
+    function toggleDarkMode() {
+      const root = document.documentElement
+      const isDarktheme = root.classList.contains("dark-theme")
+      if (isDarktheme) {
+        root.classList.remove("dark-theme")
+      } else {
+        root.classList.add("dark-theme")
+      }
+      localStorage.theme = isDarktheme
+        ? "light"
+        : "dark";
+    }
+    window.toggleDarkMode = toggleDarkMode;
+  </script>
+</head>
+
+<body>
+  <Navbar />
+  <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
+    <slot />
+  </main>
+</body>
+
 </html>
