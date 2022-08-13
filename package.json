@@ -50,6 +50,7 @@
     "nanostores": "^0.6.0",
     "react": "npm:@preact/compat@^17.1.1",
     "react-dom": "npm:@preact/compat@^17.1.1",
+    "react-icons": "^4.4.0",
     "solid-dismiss": "^1.2.1",
     "solid-floating-ui": "^0.1.0",
     "solid-headless": "^0.12.6",

@@ -34,6 +34,7 @@ specifiers:
   prisma: ^4.1.1
   react: npm:@preact/compat@^17.1.1
   react-dom: npm:@preact/compat@^17.1.1
+  react-icons: ^4.4.0
   sass: ^1.54.3
   solid-dismiss: ^1.2.1
   solid-floating-ui: ^0.1.0
@@ -60,6 +61,7 @@ dependencies:
   nanostores: 0.6.0
   react: /@preact/compat/17.1.1_preact@10.10.2
   react-dom: /@preact/compat/17.1.1_preact@10.10.2
+  react-icons: 4.4.0_@preact+compat@17.1.1
   solid-dismiss: 1.2.1_solid-js@1.4.8
   solid-floating-ui: 0.1.0_solid-js@1.4.8
   solid-headless: 0.12.6_solid-js@1.4.8
@@ -3892,6 +3894,14 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
     dev: true
+
+  /react-icons/4.4.0_@preact+compat@17.1.1:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: /@preact/compat/17.1.1_preact@10.10.2
+    dev: false
 
   /read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
