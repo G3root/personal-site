@@ -6,12 +6,12 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [solid(), preact({ compat: true })],
+  integrations: [preact({ compat: true })],
   output: 'server',
   adapter: node(),
   vite: {
     ssr: {
       external: ["svgo"]
-    }
+    },
   }
 });
