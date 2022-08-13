@@ -17,15 +17,19 @@
     "importsNotUsedAsValues": "error",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "skipLibCheck": true,
     "paths": {
       "~/*": [
-        "./src/*"
+        "./src/*",
+      ],
+      "react": [
+        "./node_modules/preact/compat/"
+      ],
+      "react-dom": [
+        "./node_modules/preact/compat/"
       ]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "types": [
-      "unplugin-icons/types/preact"
-    ]
   }
 }
