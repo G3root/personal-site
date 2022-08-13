@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/node': ^1.0.0
-  '@astrojs/preact': ^1.0.1
+  '@astrojs/preact': ^1.0.2
   '@astrojs/solid-js': ^1.0.0
   '@astrojs/tailwind': ^0.2.5
   '@iconify-json/heroicons-outline': ^1.1.2
@@ -17,7 +17,8 @@ specifiers:
   '@types/cookie': ^0.5.1
   '@types/jsonwebtoken': ^8.5.8
   '@types/node': ^18.6.4
-  astro: ^1.0.2
+  ariakit: 2.0.0-next.38
+  astro: ^1.0.4
   astro-icon: ^0.7.3
   autoprefixer: ^10.4.8
   cookie: ^0.5.0
@@ -31,6 +32,8 @@ specifiers:
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.5.0
   prisma: ^4.1.1
+  react: npm:@preact/compat@^17.1.1
+  react-dom: npm:@preact/compat@^17.1.1
   sass: ^1.54.3
   solid-dismiss: ^1.2.1
   solid-floating-ui: ^0.1.0
@@ -49,18 +52,21 @@ dependencies:
   '@prisma/client': 4.1.1_prisma@4.1.1
   '@solid-aria/accordion': 0.0.1_solid-js@1.4.8
   '@solid-primitives/storage': 1.3.1_solid-js@1.4.8
+  ariakit: 2.0.0-next.38_dmmjpkrptnkrz2kzqikv5vt4mi
   astro-icon: 0.7.3
   cookie: 0.5.0
   jsonwebtoken: 8.5.1
   lightcookie: 1.0.25
   nanostores: 0.6.0
+  react: /@preact/compat/17.1.1_preact@10.10.2
+  react-dom: /@preact/compat/17.1.1_preact@10.10.2
   solid-dismiss: 1.2.1_solid-js@1.4.8
   solid-floating-ui: 0.1.0_solid-js@1.4.8
   solid-headless: 0.12.6_solid-js@1.4.8
   waystone: 0.2.6
 
 devDependencies:
-  '@astrojs/preact': 1.0.1_preact@10.10.2
+  '@astrojs/preact': 1.0.2_preact@10.10.2
   '@astrojs/solid-js': 1.0.0_solid-js@1.4.8
   '@astrojs/tailwind': 0.2.5
   '@iconify-json/heroicons-outline': 1.1.2
@@ -69,7 +75,7 @@ devDependencies:
   '@types/cookie': 0.5.1
   '@types/jsonwebtoken': 8.5.8
   '@types/node': 18.6.4
-  astro: 1.0.2_sass@1.54.3
+  astro: 1.0.4_sass@1.54.3
   autoprefixer: 10.4.8_postcss@8.4.14
   cssnano: 5.1.12_postcss@8.4.14
   postcss: 8.4.14
@@ -109,8 +115,8 @@ packages:
     resolution: {integrity: sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==}
     dev: true
 
-  /@astrojs/compiler/0.23.1:
-    resolution: {integrity: sha512-KsoDrASGwTKZoWXbjy8SlIeoDv7y1OfBJtHVLuPuzhConA8e0SZpGzFqIuVRfG4bhisSTptZLDQZ7oxwgPv2jA==}
+  /@astrojs/compiler/0.23.3:
+    resolution: {integrity: sha512-eBWo0d3DoRDeg2Di1/5YJtOXh5eGFSjJMp1wVoVfoITHR4egdUGgsrDHZTzj0a25M/S9W5S6SpXCyNWcqi8jOA==}
     dev: true
 
   /@astrojs/language-server/0.20.3:
@@ -177,8 +183,8 @@ packages:
       '@astrojs/webapi': 1.0.0
     dev: false
 
-  /@astrojs/preact/1.0.1_preact@10.10.2:
-    resolution: {integrity: sha512-gDVvNP22rJiRSUdKwWmjZsm0LMBhWtMWoFc17PNYQVktw/XgWmYw68JPsfIg8Au6OOKTBbinRf/lhNicx6e2Rg==}
+  /@astrojs/preact/1.0.2_preact@10.10.2:
+    resolution: {integrity: sha512-hJn1SuclnC15qzsZ1d0PkJGi03B2pCokpWl9+uydYJTtAPVqA5fDoaUhcX44wBWIJIUuQ9Dfk9+Ph8OY3D6ypw==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
       preact: ^10.6.5
@@ -520,6 +526,16 @@ packages:
     dev: true
     optional: true
 
+  /@floating-ui/core/1.0.1:
+    resolution: {integrity: sha512-bO37brCPfteXQfFY0DyNDGB3+IMe4j150KFQcgJ5aBP295p9nBGeHEs/p0czrRbtlHq4Px/yoPXO/+dOCcF4uA==}
+    dev: false
+
+  /@floating-ui/dom/1.0.1:
+    resolution: {integrity: sha512-wBDiLUKWU8QNPNOTAFHiIAkBv1KlHauG2AhqjSeh2H+wR8PX+AArXfz8NkRexH5PgMJMmSOS70YS89AbWYh5dA==}
+    dependencies:
+      '@floating-ui/core': 1.0.1
+    dev: false
+
   /@iconify-json/heroicons-outline/1.1.2:
     resolution: {integrity: sha512-XsOWcUhdvu3eNURW40hlC2Wrc0cSNWwD+p+UeX57h/qwwDzibIMLeBuqhz9d1FjxHeiM86WQUc4QFB1SK2BGVw==}
     dependencies:
@@ -648,6 +664,14 @@ packages:
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
+
+  /@preact/compat/17.1.1_preact@10.10.2:
+    resolution: {integrity: sha512-OjQJ6oVcjFTiKWs4MIoE/cORFFGhqnt1RO0uxGNAFUglBMPNahMDJyX5w+qEOEaOpaNTLM1L3ixc2bFEpxgs3A==}
+    peerDependencies:
+      preact: '*'
+    dependencies:
+      preact: 10.10.2
+    dev: false
 
   /@prisma/client/4.1.1_prisma@4.1.1:
     resolution: {integrity: sha512-2pXuIUYxHv5H9o6QTa1VIsl4yMgsAjKQOitlo8WVTB+vo73rmMJITBPavdGUZSWUc7adMkFzEV3y5rVTUQr77Q==}
@@ -1089,6 +1113,26 @@ packages:
       sprintf-js: 1.0.3
     dev: true
 
+  /ariakit-utils/0.17.0-next.24_@preact+compat@17.1.1:
+    resolution: {integrity: sha512-X8qwmY8erXY7A2BSnWdeONNOXkmAWSt3jBr8OpSgbvwE09uWoOsz3WGvZWb7+G1ca9+9DnN0Ji2xpJcCFFioGQ==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      react: /@preact/compat/17.1.1_preact@10.10.2
+    dev: false
+
+  /ariakit/2.0.0-next.38_dmmjpkrptnkrz2kzqikv5vt4mi:
+    resolution: {integrity: sha512-rbaH6kkL29WkhsWMTkZVFS2riEF02ePJ9k0BdV5Q2Mmfy3qPkrPU8SOKGmZDKwzNGsjhp7WXQuLvzIBGLUn2tw==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    dependencies:
+      '@floating-ui/dom': 1.0.1
+      ariakit-utils: 0.17.0-next.24_@preact+compat@17.1.1
+      react: /@preact/compat/17.1.1_preact@10.10.2
+      react-dom: /@preact/compat/17.1.1_preact@10.10.2
+    dev: false
+
   /array-iterate/1.1.4:
     resolution: {integrity: sha512-sNRaPGh9nnmdC8Zf+pT3UqP8rnWj5Hf9wiFGsX3wUQ2yVSIhO2ShFwCoceIPpB41QF6i2OEmrHmCo36xronCVA==}
     dev: true
@@ -1108,12 +1152,12 @@ packages:
       svgo: 2.8.0
     dev: false
 
-  /astro/1.0.2_sass@1.54.3:
-    resolution: {integrity: sha512-7Bmw8wGQnh/rRpybc6owYbAyr6SXKm7kX56gg82ABJbqnTQhbgOPtg8+k+KKkJekMU/gPe3LfMIh0+Ie+F9xUw==}
+  /astro/1.0.4_sass@1.54.3:
+    resolution: {integrity: sha512-wNXmDSHnhiFcEeMy2VWMJV1i8mPx8Lu4qLBfZSmP9nWrc/oxgBZfDQTWOj0/NFu+MkfZ2JEGJlL9RZFmHrKlew==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.23.1
+      '@astrojs/compiler': 0.23.3
       '@astrojs/language-server': 0.20.3
       '@astrojs/markdown-remark': 1.0.0
       '@astrojs/telemetry': 1.0.0
@@ -1147,8 +1191,8 @@ packages:
       ora: 6.1.2
       path-browserify: 1.0.1
       path-to-regexp: 6.2.1
-      postcss: 8.4.14
-      postcss-load-config: 3.1.4_postcss@8.4.14
+      postcss: 8.4.16
+      postcss-load-config: 3.1.4_postcss@8.4.16
       preferred-pm: 3.0.3
       prompts: 2.4.2
       recast: 0.20.5
@@ -3504,6 +3548,23 @@ packages:
       yaml: 1.10.2
     dev: true
 
+  /postcss-load-config/3.1.4_postcss@8.4.16:
+    resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
+    engines: {node: '>= 10'}
+    peerDependencies:
+      postcss: '>=8.0.9'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      postcss:
+        optional: true
+      ts-node:
+        optional: true
+    dependencies:
+      lilconfig: 2.0.6
+      postcss: 8.4.16
+      yaml: 1.10.2
+    dev: true
+
   /postcss-merge-longhand/5.1.6_postcss@8.4.14:
     resolution: {integrity: sha512-6C/UGF/3T5OE2CEbOuX7iNO63dnvqhGZeUnKkDeifebY0XqkkvrctYSZurpNE902LDf2yKwwPFgotnfSoPhQiw==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -3767,7 +3828,6 @@ packages:
 
   /preact/10.10.2:
     resolution: {integrity: sha512-GUXSsfwq4NKhlLYY5ctfNE0IjFk7Xo4952yPI8yMkXdhzeQmQ+FahZITe7CeHXMPyKBVQ8SoCmGNIy9TSOdhgQ==}
-    dev: true
 
   /preferred-pm/3.0.3:
     resolution: {integrity: sha512-+wZgbxNES/KlJs9q40F/1sfOd/j7f1O9JaHcW5Dsn3aUUOZg3L2bjpVUcKV2jvtElYfoTuQiNeMfQJ4kwUAhCQ==}
