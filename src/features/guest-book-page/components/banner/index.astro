@@ -1,14 +1,14 @@
 ---
-
+import Popover from "../popover"
+import { GetUser } from "~/utils/auth";
+const user = GetUser(Astro)
 ---
 
 <div class="my-4 w-full rounded border-2 border-dashed border-slate-8 p-6 ">
     <h5 class="text-lg font-bold md:text-xl ">
         Share a message for a future visitor of my site.
     </h5>
-    <button class="my-4 rounded bg-slate-4 hover:bg-slate-5 px-4 py-2 font-bold" type="button">Sign the
-        Guestbook</button>
-
+    <Popover data={user} client:idle />
     <p class="max-w-sm text-sm ">
         Your information is only used to display your name.
     </p>
