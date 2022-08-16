@@ -7,6 +7,11 @@ import {
   usePopoverState,
 } from "ariakit/popover";
 import type { TokenPayload } from "~/utils/auth";
+import { AuthButtons } from "./auth-buttons";
+import SigningForm from "./signing-popover";
+import { useEffect } from "preact/hooks";
+import { setUser, user as userAtom } from "~/atoms";
+import { useStore } from "@nanostores/preact";
 
 interface GuestBookPopoverProps {
   data: TokenPayload | null;
@@ -14,6 +19,10 @@ interface GuestBookPopoverProps {
 
 export default function GuestBookPopover(props: GuestBookPopoverProps) {
   const { data } = props;
+  const user = useStore(userAtom);
+  useEffect(() => {
+    setUser(data);
+  }, []);
   const popover = usePopoverState();
   return (
     <>
@@ -26,14 +35,14 @@ export default function GuestBookPopover(props: GuestBookPopoverProps) {
       <Popover
         state={popover}
         aria-label={
-          data?.user ? "sign the guestbook popover" : "authentication popover"
+          user ? "sign the guestbook popover" : "authentication popover"
         }
         className="bg-slate-2 rounded-md w-64  drop-shadow mb-4"
       >
         <div className="p-3">
           <div className="flex items-center justify-between">
             <PopoverHeading className="text-lg font-bold">
-              {data?.user ? "Sign a message" : "Login with"}
+              {user ? "Sign a message" : "Login with"}
             </PopoverHeading>
             <button
               className="flex items-center hover:bg-slate-4 active:bg-slate-4 p-1 rounded-md"
@@ -48,7 +57,7 @@ export default function GuestBookPopover(props: GuestBookPopoverProps) {
               />
             </button>
           </div>
-          {/* {data.user ? <SigningForm /> : <AuthButtons />} */}
+          {user ? <SigningForm user={user} /> : <AuthButtons />}
         </div>
       </Popover>
     </>
