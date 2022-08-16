@@ -8,6 +8,7 @@ specifiers:
   '@iconify-json/heroicons-outline': ^1.1.2
   '@isaacs/ttlcache': ^1.2.0
   '@nanostores/persistent': ^0.6.0
+  '@nanostores/preact': ^0.2.1
   '@nanostores/solid': ^0.1.6
   '@prisma/client': ^4.1.1
   '@radix-ui/colors': ^0.1.8
@@ -25,6 +26,7 @@ specifiers:
   cssnano: ^5.1.12
   jsonwebtoken: ^8.5.1
   lightcookie: ^1.0.25
+  nanoid: ^4.0.0
   nanostores: ^0.6.0
   postcss: ^8.4.14
   postcss-import: ^14.1.0
@@ -49,6 +51,7 @@ dependencies:
   '@astrojs/node': 1.0.0
   '@isaacs/ttlcache': 1.2.0
   '@nanostores/persistent': 0.6.0_nanostores@0.6.0
+  '@nanostores/preact': 0.2.1_z6w7v2u65nzsz7eelxrdhgz7vu
   '@nanostores/solid': 0.1.6
   '@prisma/client': 4.1.1_prisma@4.1.1
   '@solid-aria/accordion': 0.0.1_solid-js@1.4.8
@@ -58,6 +61,7 @@ dependencies:
   cookie: 0.5.0
   jsonwebtoken: 8.5.1
   lightcookie: 1.0.25
+  nanoid: 4.0.0
   nanostores: 0.6.0
   react: /@preact/compat/17.1.1_preact@10.10.2
   react-dom: /@preact/compat/17.1.1_preact@10.10.2
@@ -621,6 +625,17 @@ packages:
       nanostores: ^0.6.0
     dependencies:
       nanostores: 0.6.0
+    dev: false
+
+  /@nanostores/preact/0.2.1_z6w7v2u65nzsz7eelxrdhgz7vu:
+    resolution: {integrity: sha512-tCT10bBrO6qtzfShQbQL10yLwpGkdRxpknFuI6drkXkFYNs0LFIHQXgTr7jShcnlbQnhOSBIPtSnCVwKd/HvFA==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      nanostores: ^0.6.0
+      preact: '>=10.0.0'
+    dependencies:
+      nanostores: 0.6.0
+      preact: 10.10.2
     dev: false
 
   /@nanostores/solid/0.1.6:
@@ -1213,7 +1228,7 @@ packages:
       vfile: 5.3.4
       vite: 3.0.5_sass@1.54.3
       yargs-parser: 21.1.1
-      zod: 3.17.10
+      zod: 3.18.0
     transitivePeerDependencies:
       - less
       - sass
@@ -3188,6 +3203,12 @@ packages:
     hasBin: true
     dev: true
 
+  /nanoid/4.0.0:
+    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
+
   /nanostores/0.5.13:
     resolution: {integrity: sha512-UxC2eZsCbbcHZ1Z/hwFQ1C4gy8Tkhzskvmu6wOsAhOMAOd72HmVX1Nxs96DSDUcd7V1x0IdRtsl+zAm7rg7slA==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
@@ -4894,8 +4915,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod/3.17.10:
-    resolution: {integrity: sha512-IHXnQYQuOOOL/XgHhgl8YjNxBHi3xX0mVcHmqsvJgcxKkEczPshoWdxqyFwsARpf41E0v9U95WUROqsHHxt0UQ==}
+  /zod/3.18.0:
+    resolution: {integrity: sha512-gwTm8RfUCe8l9rDwN5r2A17DkAa8Ez4Yl4yXqc5VqeGaXaJahzYYXbTwvhroZi0SNBqTwh/bKm2N0mpCzuw4bA==}
     dev: true
 
   /zwitch/2.0.2:
