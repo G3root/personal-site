@@ -2,19 +2,32 @@
 export interface Props {
   title: string;
   maxThemeIndex?: number;
+  theme?: {
+    mode: "dark-theme" | "light-theme";
+    theme: number;
+  } | null
 }
 
 import "~/styles/main.css";
 import "~/styles/theme.scss";
-const { title, maxThemeIndex = MAXIMUM_THEME_INDEX } = Astro.props as Props;
-
 import BottomNav from "~/components/bottom-nav/index.astro"
 import Navbar from "~/components/navbar/index.astro";
 import { MAXIMUM_THEME_INDEX } from "~/constants";
+import { getThemeCookie } from "~/utils/theme";
+
+
+
+const theme_ = getThemeCookie(Astro.request.headers)
+
+
+
+const { title, maxThemeIndex = MAXIMUM_THEME_INDEX, theme = theme_ } = Astro.props as Props;
+
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-max-theme-index={maxThemeIndex} data-theme-index="0">
+<html lang="en" data-max-theme-index={maxThemeIndex} data-theme={JSON.stringify(theme)} class={theme?.mode ?? "" }
+  data-theme-index={theme?.theme ?? 0}>
 
 <head>
   <meta charset="UTF-8">
@@ -40,33 +53,28 @@ import { MAXIMUM_THEME_INDEX } from "~/constants";
   <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" type="image/png" sizes="180x180">
   <link rel="manifest" href="/static/site.webmanifest">
   <link rel="icon" href="/favicon.ico">
+
   <script is:inline>
-    const maxIndex =
-      "undefined" != typeof window &&
-        window.document.documentElement.getAttribute("data-max-theme-index")
-        ? Number(
-          window.document.documentElement.getAttribute(
-            "data-max-theme-index"
-          )
-        )
-        : 0,
-      index =
-        "undefined" != typeof localStorage &&
-          localStorage.getItem("theme-index")
-          ? Number(localStorage.getItem("theme-index"))
-          : 0;
-    "number" == typeof index &&
-      index < maxIndex &&
-      document.documentElement.setAttribute("data-theme-index", `${index}`);
-
-
+    if (typeof window !== "undefined") {
+      const root = document.documentElement
+      const theme = root.getAttribute("data-theme")
+      if (theme !== "null") {
+        document.cookie = `__theme_nfz=${theme}; SameSite=Lax; Secure; path=/`;
+      } else {
+        document.cookie = `__theme_nfz=${JSON.stringify({ mode: "light-theme", theme: 0 })}; SameSite=Lax; Secure; path=/`;
+      }
+    }
+  </script>
+  <script is:inline>
+   
     function toggleThemeButton() {
       const root = document.documentElement
       const maxIndex = Number(root.getAttribute("data-max-theme-index"))
       const themeIndex = Number(root.getAttribute("data-theme-index"))
+      const theme = JSON.parse(root.getAttribute("data-theme"))
       const isLessThanMax = themeIndex < maxIndex
       const currentIndex = isLessThanMax ? String(themeIndex + 1) : String(0)
-      localStorage.setItem("theme-index", currentIndex)
+      document.cookie = `__theme_nfz=${JSON.stringify({ mode: theme.mode, theme: currentIndex })}; SameSite=Lax; Secure; path=/`;
       root.setAttribute("data-theme-index", currentIndex)
     }
 
@@ -75,27 +83,22 @@ import { MAXIMUM_THEME_INDEX } from "~/constants";
   </script>
 
   <script is:inline>
-    const theme =
-      typeof localStorage !== "undefined" && localStorage.getItem("theme")
-        ? localStorage.getItem("theme")
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-    "light" === theme
-      ? document.documentElement.classList.remove("dark-theme")
-      : document.documentElement.classList.add("dark-theme");
 
     function toggleDarkMode() {
       const root = document.documentElement
       const isDarktheme = root.classList.contains("dark-theme")
       if (isDarktheme) {
         root.classList.remove("dark-theme")
-      } else {
+        root.classList.add("light-theme")
+      } else{
         root.classList.add("dark-theme")
+        root.classList.remove("light-theme")
       }
-      localStorage.theme = isDarktheme
-        ? "light"
-        : "dark";
+      const theme = JSON.parse(root.getAttribute("data-theme"))
+      document.cookie = `__theme_nfz=${JSON.stringify({ mode: isDarktheme
+? "light-theme"
+        : "dark-theme", theme: theme.theme })}; SameSite=Lax; Secure; path=/`;
+     
     }
     window.toggleDarkMode = toggleDarkMode;
   </script>

@@ -17,3 +17,4 @@ export const SESSION_SECRET = import.meta.env.SESSION_SECRET;
 export const AUTH_COOKIE_NAME = "__session_nfz";
 export const SITE_URL = import.meta.env.SITE_URL;
 export const GITHUB_AUTH_REDIRECT_URL = `${SITE_URL}/api/auth/callback/github`;
+export const THEME_COOKIE_NAME = "__theme_nfz";
