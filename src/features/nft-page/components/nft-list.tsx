@@ -64,7 +64,7 @@ const DisclosureContentItems = (props: DisclosureContentItemsProps) => {
   const { nfts, state } = props;
 
   return (
-    <DisclosureContent state={state} className="mb-2">
+    <DisclosureContent state={state} className="mb-5">
       <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
         {nfts.map((data) => (
           <Fragment key={data.id}>
