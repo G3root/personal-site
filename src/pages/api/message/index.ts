@@ -18,7 +18,6 @@ export async function post({ params, request }: APIContext) {
     });
   }
   const body = (await request.json()) as { content?: string };
-  console.log({ user });
 
   if (
     !body ||
