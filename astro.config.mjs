@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import solid from "@astrojs/solid-js";
 import node from '@astrojs/node';
 
 import preact from "@astrojs/preact";
