@@ -15,7 +15,7 @@ const messages = await getAllMessages()
     <PageSubtitle
       content="Leave a comment below. It could be anything – appreciation, information, wisdom, or even humor. Surprise me!" />
     <Banner />
-    <div class="pt-4 pb-16">
+    <div data-animate style="--stagger:3" class="pt-4 pb-16 relative">
       <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
         <MessagesList messages={messages} client:load />
       </div>

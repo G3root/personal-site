@@ -5,6 +5,6 @@ export interface Props {
 const { content } = Astro.props as Props;
 ---
 
-<p class="mb-4 max-w-lg font-mono">
+<p data-animate style="--stagger:2" class="mb-4 max-w-lg font-mono">
   {content}
 </p>

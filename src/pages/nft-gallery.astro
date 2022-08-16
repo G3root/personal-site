@@ -14,3 +14,9 @@ const data = await getAllNfts()
     <NftList data={data} client:load />
   </div>
 </Layout>
+
+<style is:global>
+  .disclosure[aria-expanded="true"] .chevron {
+    transform: rotateZ(90deg);
+  }
+</style>

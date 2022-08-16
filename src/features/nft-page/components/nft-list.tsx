@@ -38,7 +38,7 @@ const DisclosureButton = (props: DisclosureButtonProps) => {
               <FiChevronRight
                 /*
       // @ts-ignore */
-                className="chevron h-5 w-5 transition delay-150 ease-out"
+                className="chevron h-5 w-5 transition delay-100 ease-out"
                 aria-hidden
               />
             </div>
@@ -114,7 +114,7 @@ export const NftList = (props: NftListProps) => {
 
   return (
     <div className="mt-6 grid  grid-cols-1">
-      <div className="flex  flex-col gap-y-2">
+      <div data-animate style="--stagger:3" className="flex  flex-col gap-y-2">
         {data.nft.map((item) => (
           /*
       // @ts-ignore */
@@ -130,7 +130,7 @@ export const NftList = (props: NftListProps) => {
             <DisclosureContentItems state={nftDisclosure} nfts={item.assets} />
           </Fragment>
         ))}
-        <div>
+        <div data-animate style="--stagger:3">
           <DisclosureButton
             state={poapDisclosure}
             name={data.poap.collectionName}

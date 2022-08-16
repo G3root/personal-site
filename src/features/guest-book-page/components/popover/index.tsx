@@ -37,7 +37,7 @@ export default function GuestBookPopover(props: GuestBookPopoverProps) {
         aria-label={
           user ? "sign the guestbook popover" : "authentication popover"
         }
-        className="bg-slate-2 rounded-md w-64  drop-shadow mb-4"
+        className="bg-slate-2 rounded-md w-64  drop-shadow mb-4 z-10"
       >
         <div className="p-3">
           <div className="flex items-center justify-between">
