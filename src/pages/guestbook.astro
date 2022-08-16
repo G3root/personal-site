@@ -3,6 +3,9 @@ import PageTitle from "~/components/page-title/index.astro";
 import PageSubtitle from "~/components/page-subtitle/index.astro";
 import Layout from "~/layouts/Layout.astro";
 import Banner from "~/features/guest-book-page/components/banner/index.astro"
+import MessagesList from "~/features/guest-book-page/components/message-list/message-list";
+import { getAllMessages } from "~/features/guest-book-page/api/guestbook";
+const messages = await getAllMessages()
 
 ---
 
@@ -12,5 +15,10 @@ import Banner from "~/features/guest-book-page/components/banner/index.astro"
     <PageSubtitle
       content="Leave a comment below. It could be anything – appreciation, information, wisdom, or even humor. Surprise me!" />
     <Banner />
+    <div class="pt-4 pb-16">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-4">
+        <MessagesList messages={messages} client:load />
+      </div>
+    </div>
   </div>
 </Layout>
