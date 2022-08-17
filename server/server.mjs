@@ -37,8 +37,8 @@ const server = createServer((req, res) => {
     });
 });
 
-server.listen(3000);
-console.log('Serving at http://localhost:3000');
+server.listen(8080);
+console.log('Serving at http://localhost:8080');
 
 // Silence weird <time> warning
 console.error = () => { };
