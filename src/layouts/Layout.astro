@@ -55,6 +55,9 @@ const { title, maxThemeIndex = MAXIMUM_THEME_INDEX, theme = theme_ } = Astro.pro
   <link rel="manifest" href="/static/site.webmanifest">
   <link rel="icon" href="/favicon.ico">
 
+  <script>
+    import "waystone"
+  </script>
   <script is:inline>
     if (typeof window !== "undefined") {
       const root = document.documentElement
