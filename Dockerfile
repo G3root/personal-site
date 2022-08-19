@@ -4,6 +4,8 @@ FROM node:16-bullseye-slim as base
 # set for base and all layer that inherit from it
 ENV NODE_ENV production
 
+
+
 # Install openssl for Prisma
 RUN apt-get update && apt-get install -y openssl sqlite3
 
@@ -33,6 +35,18 @@ COPY --from=deps /myapp/node_modules /myapp/node_modules
 
 ADD prisma .
 RUN npx prisma generate
+
+RUN --mount=type=secret,id=GITHUB_CLIENT_ID \
+    --mount=type=secret,id=GITHUB_CLIENT_SECRET \
+    --mount=type=secret,id=SESSION_SECRET \
+    --mount=type=secret,id=SITE_URL \
+    echo GITHUB_CLIENT_ID=$(cat /run/secrets/GITHUB_CLIENT_ID)'\n'\
+    GITHUB_CLIENT_ID=$(cat /run/secrets/GITHUB_CLIENT_ID)'\n'\
+    GITHUB_CLIENT_SECRET=$(cat /run/secrets/GITHUB_CLIENT_SECRET)'\n'\
+    SESSION_SECRET=$(cat /run/secrets/SESSION_SECRET)'\n'\
+    SITE_URL=$(cat /run/secrets/SITE_URL) > .env 
+
+RUN test -f .env && echo 'It Exists'
 
 ADD . .
 RUN npm run build
