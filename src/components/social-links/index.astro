@@ -31,11 +31,16 @@ const Links = [
 
 <div data-animate style="--stagger:3" class="flex items-center gap-x-2 mt-5">
   {
-  Links.map((item) => (
-  <a href={item.href} aria-label={item.label} class="flex items-center p-1.5 rounded-md theme-btn" target="_blank"
-    rel="noopener noreferrer">
-    <Icon name={item.icon} aria-hidden class="h-5 w-5" />
-  </a>
-  ))
+    Links.map((item) => (
+      <a
+        href={item.href}
+        aria-label={item.label}
+        class="flex items-center p-1.5 rounded-md theme-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name={item.icon} aria-hidden class="h-5 w-5" />
+      </a>
+    ))
   }
 </div>

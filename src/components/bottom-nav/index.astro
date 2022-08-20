@@ -1,28 +1,36 @@
 ---
-import Clock from "./clock"
-import MobileMenu from "./mobile-menu"
+import Clock from "./clock";
+import MobileMenu from "./mobile-menu";
 
-const pathname = new URL(Astro.request.url).pathname
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<div class="md:hidden  fixed bottom-6 right-0 left-0 px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur-md ">
-    <div class="w-full max-w-3xl rounded-3xl shadow-xl relative z-10 dark:bg-blackA-11 bg-whiteA-10">
-        <div class="px-4 py-4 flex justify-between items-center">
-            <div>
-                <div  class="text-xs flex items-center text-slate-11">
-                    <a target="_blank"  rel="noopener noreferrer"
-                    aria-label="wikipedia link of my home town"
-                        href="https://en.wikipedia.org/wiki/Ukuwela">
-                        <em>Ukuwela · LKA</em>
-                    </a>
-                    <p aria-label="current time in Sri lanka" class="ml-1"> ·
-                        <Clock client:media="(max-width: 768px)" />
-                    </p>
-                </div>
-            </div>
-            <div class="flex justify-end ">
-                <MobileMenu path={pathname} client:media="(max-width: 768px)" />
-            </div>
+<div
+  class="md:hidden fixed bottom-6 right-0 left-0 px-2 pb-[env(safe-area-inset-bottom)] backdrop-blur-md"
+>
+  <div
+    class="w-full max-w-3xl rounded-3xl shadow-xl relative z-10 dark:bg-blackA-11 bg-whiteA-10"
+  >
+    <div class="px-4 py-4 flex justify-between items-center">
+      <div>
+        <div class="text-xs flex items-center text-slate-11">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="wikipedia link of my home town"
+            href="https://en.wikipedia.org/wiki/Ukuwela"
+          >
+            <em>Ukuwela · LKA</em>
+          </a>
+          <p aria-label="current time in Sri lanka" class="ml-1">
+            ·
+            <Clock client:media="(max-width: 768px)" />
+          </p>
         </div>
+      </div>
+      <div class="flex justify-end">
+        <MobileMenu path={pathname} client:media="(max-width: 768px)" />
+      </div>
     </div>
+  </div>
 </div>

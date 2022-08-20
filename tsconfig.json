@@ -20,7 +20,7 @@
     "skipLibCheck": true,
     "paths": {
       "~/*": [
-        "./src/*",
+        "./src/*"
       ],
       "react": [
         "./node_modules/preact/compat/"
@@ -30,6 +30,6 @@
       ]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
+    "jsxImportSource": "preact"
   }
 }

@@ -1,15 +1,15 @@
 ---
-import Popover from "../popover"
+import Popover from "../popover";
 import { GetUser } from "~/utils/auth";
-const user = GetUser(Astro.request.headers)
+const user = GetUser(Astro.request.headers);
 ---
 
-<div class="my-4 w-full rounded border-2 border-dashed border-slate-8 p-6 ">
-    <h5 class="text-lg font-bold md:text-xl ">
-        Share a message for a future visitor of my site.
-    </h5>
-    <Popover data={user} client:load />
-    <p class="max-w-sm text-sm ">
-        Your information is only used to display your name.
-    </p>
+<div class="my-4 w-full rounded border-2 border-dashed border-slate-8 p-6">
+  <h5 class="text-lg font-bold md:text-xl">
+    Share a message for a future visitor of my site.
+  </h5>
+  <Popover data={user} client:load />
+  <p class="max-w-sm text-sm">
+    Your information is only used to display your name.
+  </p>
 </div>

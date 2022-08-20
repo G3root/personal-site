@@ -4,7 +4,7 @@ import PageSubtitle from "~/components/page-subtitle/index.astro";
 import Layout from "~/layouts/Layout.astro";
 import { getAllNfts } from "~/features/nft-page/api/nfts";
 import { NftList } from "~/features/nft-page/components";
-const data = await getAllNfts()
+const data = await getAllNfts();
 ---
 
 <Layout title="NFT-Gallery">
