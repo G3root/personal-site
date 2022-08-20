@@ -1,0 +1,30 @@
+---
+---
+
+<button
+  type="button"
+  aria-label="toggle theme color"
+  class="p-3 rounded-full theme-bg"
+  id="theme-toggle"></button>
+
+<script>
+  const themeToggle = document.querySelector("#theme-toggle");
+  function toggleThemeButton() {
+    const root = document.documentElement;
+    const maxIndex = Number(root.getAttribute("data-max-theme-index"));
+    const themeIndex = Number(root.getAttribute("data-theme-index"));
+    const theme = JSON.parse(root.getAttribute("data-theme") as string);
+    const isLessThanMax = themeIndex < maxIndex;
+    const currentIndex = isLessThanMax ? String(themeIndex + 1) : String(0);
+    document.cookie = `__theme_nfz=${JSON.stringify({
+      mode: theme.mode,
+      theme: currentIndex,
+    })}; SameSite=Lax; Secure; path=/`;
+    root.setAttribute("data-theme-index", currentIndex);
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      toggleThemeButton();
+    });
+  }
+</script>

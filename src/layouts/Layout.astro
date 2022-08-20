@@ -5,115 +5,122 @@ export interface Props {
   theme?: {
     mode: "dark-theme" | "light-theme";
     theme: number;
-  } | null
+  } | null;
 }
 import "~/styles/fonts.css";
 import "~/styles/main.css";
 import "~/styles/theme.scss";
-import BottomNav from "~/components/bottom-nav/index.astro"
+import BottomNav from "~/components/bottom-nav/index.astro";
 import Navbar from "~/components/navbar/index.astro";
 import { MAXIMUM_THEME_INDEX } from "~/constants";
 import { getThemeCookie } from "~/utils/theme";
 
+const theme_ = getThemeCookie(Astro.request.headers);
 
-
-const theme_ = getThemeCookie(Astro.request.headers)
-
-
-
-const { title, maxThemeIndex = MAXIMUM_THEME_INDEX, theme = theme_ } = Astro.props as Props;
-
+const {
+  title,
+  maxThemeIndex = MAXIMUM_THEME_INDEX,
+  theme = theme_,
+} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-max-theme-index={maxThemeIndex} data-theme={JSON.stringify(theme)} class={theme?.mode ?? "" }
-  data-theme-index={theme?.theme ?? 0}>
+<html
+  lang="en"
+  data-max-theme-index={maxThemeIndex}
+  data-theme={JSON.stringify(theme)}
+  class={theme?.mode ?? ""}
+  data-theme-index={theme?.theme ?? 0}
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nafees Nazik - {title}</title>
+    <meta
+      content="UI developer interested in design systems and Interfaces."
+      name="description"
+    />
+    <meta content="#FFF" name="theme-color" />
+    <meta
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="website" property="og:type" />
+    <meta content="https://www.nafeez.xyz/" property="og:url" />
+    <meta content="Nafees Nazik - Developer" property="og:title" />
+    <meta
+      content="UI developer interested in design systems and Interfaces."
+      property="og:description"
+    />
+    <meta content="/static/og.jpg" property="og:image" />
+    <meta content="/static/og.jpg" name="twitter:image" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="https://www.nafeez.xyz/" name="twitter:url" />
+    <meta content="Nafees Nazik - Developer" name="twitter:title" />
+    <meta
+      content="UI developer interested in design systems and Interfaces."
+      name="twitter:description"
+    />
+    <meta content="@NFS__21" name="twitter:creator" />
+    <meta content="@NFS__21" name="twitter:site" />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Inter-roman.var.woff2"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/jetbrain-regular.woff2"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="/static/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/static/favicon-16x16.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/static/apple-touch-icon.png"
+      type="image/png"
+      sizes="180x180"
+    />
+    <link rel="manifest" href="/static/site.webmanifest" />
+    <link rel="icon" href="/favicon.ico" />
 
-<head>
-  <meta charset="UTF-8">
-  <title>Nafees Nazik - {title}</title>
-  <meta content="UI developer interested in design systems and Interfaces." name="description">
-  <meta content="#FFF" name="theme-color">
-  <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport">
-  <meta content="website" property="og:type">
-  <meta content="https://www.nafeez.xyz/" property="og:url">
-  <meta content="Nafees Nazik - Developer" property="og:title">
-  <meta content="UI developer interested in design systems and Interfaces." property="og:description">
-  <meta content="/static/og.jpg" property="og:image">
-  <meta content="/static/og.jpg" name="twitter:image">
-  <meta content="summary_large_image" name="twitter:card">
-  <meta content="https://www.nafeez.xyz/" name="twitter:url">
-  <meta content="Nafees Nazik - Developer" name="twitter:title">
-  <meta content="UI developer interested in design systems and Interfaces." name="twitter:description">
-  <meta content="@NFS__21" name="twitter:creator">
-  <meta content="@NFS__21" name="twitter:site">
-  <link rel="preload" as="font" href="/fonts/Inter-roman.var.woff2" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" as="font" href="/fonts/jetbrain-regular.woff2" type="font/woff2" crossorigin="anonymous">
-  <link rel="icon" href="/static/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="icon" href="/static/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" type="image/png" sizes="180x180">
-  <link rel="manifest" href="/static/site.webmanifest">
-  <link rel="icon" href="/favicon.ico">
-
-  <script>
-    import "waystone"
-  </script>
-  <script is:inline>
-    if (typeof window !== "undefined") {
-      const root = document.documentElement
-      const theme = root.getAttribute("data-theme")
-      if (theme !== "null") {
-        document.cookie = `__theme_nfz=${theme}; SameSite=Lax; Secure; path=/`;
-      } else {
-        document.cookie = `__theme_nfz=${JSON.stringify({ mode: "light-theme", theme: 0 })}; SameSite=Lax; Secure; path=/`;
+    <script>
+      import "waystone";
+    </script>
+    <script>
+      if (typeof window !== "undefined") {
+        const root = document.documentElement;
+        const theme = root.getAttribute("data-theme");
+        if (theme !== "null") {
+          document.cookie = `__theme_nfz=${theme}; SameSite=Lax; Secure; path=/`;
+        } else {
+          document.cookie = `__theme_nfz=${JSON.stringify({
+            mode: "light-theme",
+            theme: 0,
+          })}; SameSite=Lax; Secure; path=/`;
+        }
       }
-    }
-  </script>
-  <script is:inline>
-   
-    function toggleThemeButton() {
-      const root = document.documentElement
-      const maxIndex = Number(root.getAttribute("data-max-theme-index"))
-      const themeIndex = Number(root.getAttribute("data-theme-index"))
-      const theme = JSON.parse(root.getAttribute("data-theme"))
-      const isLessThanMax = themeIndex < maxIndex
-      const currentIndex = isLessThanMax ? String(themeIndex + 1) : String(0)
-      document.cookie = `__theme_nfz=${JSON.stringify({ mode: theme.mode, theme: currentIndex })}; SameSite=Lax; Secure; path=/`;
-      root.setAttribute("data-theme-index", currentIndex)
-    }
+    </script>
+  </head>
 
-    window.toggleThemeButton = toggleThemeButton;
-
-  </script>
-
-  <script is:inline>
-
-    function toggleDarkMode() {
-      const root = document.documentElement
-      const isDarktheme = root.classList.contains("dark-theme")
-      if (isDarktheme) {
-        root.classList.remove("dark-theme")
-        root.classList.add("light-theme")
-      } else{
-        root.classList.add("dark-theme")
-        root.classList.remove("light-theme")
-      }
-      const theme = JSON.parse(root.getAttribute("data-theme"))
-      document.cookie = `__theme_nfz=${JSON.stringify({ mode: isDarktheme
-? "light-theme"
-        : "dark-theme", theme: theme.theme })}; SameSite=Lax; Secure; path=/`;
-     
-    }
-    window.toggleDarkMode = toggleDarkMode;
-  </script>
-</head>
-
-<body>
-  <Navbar />
-  <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
-    <slot />
-  </main>
-  <BottomNav />
-</body>
-
+  <body>
+    <Navbar />
+    <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
+      <slot />
+    </main>
+    <BottomNav />
+  </body>
 </html>

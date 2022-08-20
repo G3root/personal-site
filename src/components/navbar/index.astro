@@ -1,25 +1,17 @@
 ---
 import Navlinks from "./Navlinks.astro";
-import { Icon } from "astro-icon";
+import DarkModeToggle from "./dark-mode-toggle.astro";
+import ThemeToggle from "./theme-toggle.astro";
 ---
 
 <div class="flex items-center w-full justify-between px-7 md:px-32 mt-8 mb-14">
   <div>
-    <button type="button" aria-label="toggle theme color" class="p-3 rounded-full theme-bg"
-      onclick="window.toggleThemeButton()" />
+    <ThemeToggle />
   </div>
   <div class="md:block hidden">
     <Navlinks />
   </div>
   <div>
-    <button onclick="window.toggleDarkMode()" type="button" class="flex items-center p-1 rounded-md theme-btn"
-      aria-label="toggle dark mode">
-      <span class="dark:hidden block">
-        <Icon name="feather:moon" aria-hidden class="h-5 w-5" />
-      </span>
-      <span class="dark:block hidden">
-        <Icon name="feather:sun" aria-hidden class="h-5 w-5" />
-      </span>
-    </button>
+    <DarkModeToggle />
   </div>
 </div>
