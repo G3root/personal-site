@@ -1,4 +1,4 @@
-/// <reference types="astro/client" />
+/// <reference types="@astrojs/image/client" />
 interface ImportMetaEnv {
   readonly GITHUB_CLIENT_ID: string;
   readonly GITHUB_CLIENT_SECRET: string;
