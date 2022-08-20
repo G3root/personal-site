@@ -1,12 +1,15 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import SocialLinks from "~/components/social-links/index.astro";
+import { Image } from '@astrojs/image/components';
+
 ---
 
 <Layout title="Developer">
   <section class="flex flex-col sm:mb-0 mb-20">
     <div class="mb-4 sm:hidden block">
-      <img src="/static/image-2.jpg" width="80" height="80" class="rounded-full" alt="">
+      
+      <Image format="webp" src={import('../assets/image-2.jpg')}  class="rounded-full"  width={80} height={80} alt="potrait"  />
     </div>
     <h1 data-animate style="--stagger:1" class="text-5xl font-extrabold tracking-tighter sm:text-7xl mb-4 max-w-3xl">
       Developer with an appetite for interfaces and websites.
