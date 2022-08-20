@@ -16,8 +16,13 @@ async function handle(req, res) {
     let local = new URL("." + req.url, clientRoot);
     try {
       const data = await fs.promises.readFile(local);
+      const mimeType = mime.getType(req.url);
+      const isFont = mimeType === "font/woff2";
       res.writeHead(200, {
-        "Content-Type": mime.getType(req.url),
+        "Content-Type": mimeType,
+        ...(isFont && {
+          "Cache-Control": "public, max-age=31536000, immutable",
+        }),
       });
       res.end(data);
     } catch {
