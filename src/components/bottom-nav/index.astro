@@ -9,12 +9,13 @@ const pathname = new URL(Astro.request.url).pathname
     <div class="w-full max-w-3xl rounded-3xl shadow-xl relative z-10 dark:bg-blackA-11 bg-whiteA-10">
         <div class="px-4 py-4 flex justify-between items-center">
             <div>
-                <div aria-hidden class="text-xs flex items-center text-slate-11">
-                    <a target="_blank" aria-hidden rel="noopener noreferrer"
+                <div  class="text-xs flex items-center text-slate-11">
+                    <a target="_blank"  rel="noopener noreferrer"
+                    aria-label="wikipedia link of my home town"
                         href="https://en.wikipedia.org/wiki/Ukuwela">
                         <em>Ukuwela · LKA</em>
                     </a>
-                    <p aria-hidden class="ml-1"> ·
+                    <p aria-label="current time in Sri lanka" class="ml-1"> ·
                         <Clock client:media="(max-width: 768px)" />
                     </p>
                 </div>
