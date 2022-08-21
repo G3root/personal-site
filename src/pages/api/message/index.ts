@@ -36,25 +36,13 @@ export async function post({ params, request }: APIContext) {
     });
   }
 
-  const [_, data] = await prisma.$transaction([
-    prisma.guestbook.create({
-      data: {
-        content: body.content,
-        name: user.name,
-        userId: user.id,
-      },
-    }),
-    prisma.guestbook.findMany({
-      select: {
-        id: true,
-        userId: true,
-        content: true,
-        createdAt: true,
-        name: true,
-      },
-      orderBy: { createdAt: "desc" },
-    }),
-  ]);
+  const data = await prisma.guestbook.create({
+    data: {
+      content: body.content,
+      name: user.name,
+      userId: user.id,
+    },
+  });
 
   const token = GenerateAuthToken({
     ...user,

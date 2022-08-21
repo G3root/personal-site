@@ -24,7 +24,7 @@ export async function post({ params, request }: APIContext) {
     },
   });
   try {
-    const [_, __, data] = await prisma.$transaction([
+    await prisma.$transaction([
       prisma.guestbook.findFirstOrThrow({
         where: {
           userId: user.id,
@@ -32,23 +32,13 @@ export async function post({ params, request }: APIContext) {
         },
       }),
       prisma.guestbook.delete({ where: { id: body.id } }),
-      prisma.guestbook.findMany({
-        select: {
-          id: true,
-          userId: true,
-          content: true,
-          createdAt: true,
-          name: true,
-        },
-        orderBy: { createdAt: "desc" },
-      }),
     ]);
     const token = GenerateAuthToken({
       ...user,
       gm_count: Number(user.gm_count) - 1,
     });
 
-    return new Response(JSON.stringify({ data }), {
+    return new Response(JSON.stringify({}), {
       status: 200,
       headers: {
         "Set-Cookie": generateAuthCookie(token),
