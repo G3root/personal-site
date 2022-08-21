@@ -3,6 +3,7 @@ import { MAX_MESSAGE } from "~/constants";
 import type { TokenPayload } from "~/utils/auth";
 import { useRef } from "preact/hooks";
 import { increaseGmCount, setMessages, setUser } from "~/atoms";
+import { revalidateMessages } from "~/utils/dom";
 
 interface SigningFormProps {
   user: TokenPayload;
@@ -34,17 +35,7 @@ export default function SigningForm(props: SigningFormProps) {
             await req.json();
 
             if (req.ok) {
-              const url = new URL(window.location.toString());
-
-              const html = await fetch(url.toString(), {
-                method: "GET",
-              }).then((res) => res.text());
-
-              const p = new DOMParser();
-              const doc = p.parseFromString(html, "text/html");
-              document
-                .querySelector("#messages-list")!
-                .replaceWith(doc.querySelector("#messages-list")!);
+              await revalidateMessages();
 
               increaseGmCount();
             }
@@ -83,6 +74,7 @@ export default function SigningForm(props: SigningFormProps) {
         <button
           onClick={async () => {
             await fetch("/api/auth/logout");
+            await revalidateMessages();
             setUser(null);
           }}
           className="rounded px-3 py-1 font-medium bg-red-4 text-red-11 hover:bg-red-6 w-full"
