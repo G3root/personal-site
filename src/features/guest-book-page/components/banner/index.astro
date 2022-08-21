@@ -1,7 +1,11 @@
 ---
+import type { TokenPayload } from "~/utils/auth";
+interface Props {
+  user: TokenPayload | null;
+}
 import Popover from "../popover";
-import { GetUser } from "~/utils/auth";
-const user = GetUser(Astro.request.headers);
+
+const { user } = Astro.props as Props;
 ---
 
 <div class="my-4 w-full rounded border-2 border-dashed border-slate-8 p-6">
