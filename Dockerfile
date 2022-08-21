@@ -40,11 +40,14 @@ RUN --mount=type=secret,id=GITHUB_CLIENT_ID \
     --mount=type=secret,id=GITHUB_CLIENT_SECRET \
     --mount=type=secret,id=SESSION_SECRET \
     --mount=type=secret,id=SITE_URL \
-    echo GITHUB_CLIENT_ID=$(cat /run/secrets/GITHUB_CLIENT_ID)'\n'\
-    GITHUB_CLIENT_ID=$(cat /run/secrets/GITHUB_CLIENT_ID)'\n'\
-    GITHUB_CLIENT_SECRET=$(cat /run/secrets/GITHUB_CLIENT_SECRET)'\n'\
-    SESSION_SECRET=$(cat /run/secrets/SESSION_SECRET)'\n'\
-    SITE_URL=$(cat /run/secrets/SITE_URL) > .env 
+    export GITHUB_CLIENT_ID=$(cat /run/secrets/GITHUB_CLIENT_ID) && \
+    export GITHUB_CLIENT_SECRET=$(cat /run/secrets/GITHUB_CLIENT_SECRET) && \
+    export SESSION_SECRET=$(cat /run/secrets/SESSION_SECRET) && \
+    export SITE_URL=$(cat /run/secrets/SITE_URL)  && \
+    echo $GITHUB_CLIENT_ID >> .env && \
+    echo $GITHUB_CLIENT_SECRET >> .env && \
+    echo $SESSION_SECRET >> .env && \
+    echo $SITE_URL >> .env 
 
 RUN test -f .env && echo 'It Exists'
 
