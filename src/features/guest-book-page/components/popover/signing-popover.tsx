@@ -31,10 +31,21 @@ export default function SigningForm(props: SigningFormProps) {
                 content: inputRef.current?.value,
               }),
             });
-            const res = await req.json();
+            await req.json();
 
             if (req.ok) {
-              setMessages(res.data);
+              const url = new URL(window.location.toString());
+
+              const html = await fetch(url.toString(), {
+                method: "GET",
+              }).then((res) => res.text());
+
+              const p = new DOMParser();
+              const doc = p.parseFromString(html, "text/html");
+              document
+                .querySelector("#messages-list")!
+                .replaceWith(doc.querySelector("#messages-list")!);
+
               increaseGmCount();
             }
 
