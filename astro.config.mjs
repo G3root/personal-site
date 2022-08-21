@@ -3,6 +3,7 @@ import node from "@astrojs/node";
 import preact from "@astrojs/preact";
 import compress from "astro-compress";
 import image from "@astrojs/image";
+import vitePreact from "@preact/preset-vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
   output: "server",
   adapter: node(),
   vite: {
+    plugins: [vitePreact()],
     ssr: {
       external: ["svgo"],
       noExternal: ["ariakit", "ariakit-utils", "react-icons"],
