@@ -30,6 +30,6 @@
       ]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "solid-js",
   }
 }
