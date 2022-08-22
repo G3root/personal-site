@@ -1,17 +1,18 @@
-import { h } from "preact";
-import { FiX } from "react-icons/fi";
+import type { TokenPayload } from "~/utils/auth";
+import { FiX } from "solid-icons/fi";
+
 import {
   Popover,
-  PopoverDisclosure,
-  PopoverHeading,
-  usePopoverState,
-} from "ariakit/popover";
-import type { TokenPayload } from "~/utils/auth";
-import { AuthButtons } from "./auth-buttons";
-import SigningForm from "./signing-popover";
-import { useEffect } from "preact/hooks";
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "solid-headless";
+import { onMount, Show } from "solid-js";
+import { useStore } from "@nanostores/solid";
+
 import { setUser, user as userAtom } from "~/atoms";
-import { useStore } from "@nanostores/preact";
+import SigningForm from "./signing-popover";
+import { AuthButtons } from "./auth-buttons";
 
 interface GuestBookPopoverProps {
   data: TokenPayload | null;
@@ -20,45 +21,57 @@ interface GuestBookPopoverProps {
 export default function GuestBookPopover(props: GuestBookPopoverProps) {
   const { data } = props;
   const user = useStore(userAtom);
-  useEffect(() => {
+
+  onMount(() => {
     setUser(data);
-  }, []);
-  const popover = usePopoverState();
+  });
   return (
     <>
-      <PopoverDisclosure
-        className="my-4 rounded bg-slate-4 hover:bg-slate-5 px-4 py-2 font-bold"
-        state={popover}
-      >
-        Sign the Guestbook
-      </PopoverDisclosure>
-      <Popover
-        state={popover}
-        aria-label={
-          user ? "sign the guestbook popover" : "authentication popover"
-        }
-        className="bg-slate-2 rounded-md w-64  drop-shadow mb-4 z-10"
-      >
-        <div className="p-3">
-          <div className="flex items-center justify-between">
-            <PopoverHeading className="text-lg font-bold">
-              {user ? "Sign a message" : "Login with"}
-            </PopoverHeading>
-            <button
-              className="flex items-center hover:bg-slate-4 active:bg-slate-4 p-1 rounded-md"
-              aria-label="close popup"
-              onClick={popover.hide}
+      <Popover defaultOpen={false} class="relative">
+        {({ isOpen, setState }) => (
+          <>
+            <PopoverButton class="my-4 rounded bg-slate-4 hover:bg-slate-5 px-4 py-2 font-bold">
+              Sign the Guestbook
+            </PopoverButton>
+            <Transition
+              show={isOpen()}
+              enter="transition duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
             >
-              <FiX
-                aria-hidden
-                /*
-      // @ts-ignore */
-                className="h-4 w-4"
-              />
-            </button>
-          </div>
-          {user ? <SigningForm user={user} /> : <AuthButtons />}
-        </div>
+              <PopoverPanel
+                unmount={false}
+                class="absolute bg-slate-2 rounded-md w-64  drop-shadow mb-4 z-10"
+              >
+                <div class="p-3">
+                  <div class="flex items-center justify-between">
+                    <div class="text-lg font-bold">
+                      <Show when={user()} fallback="Login with">
+                        Sign a message
+                      </Show>
+                    </div>
+                    <button
+                      class="flex items-center hover:bg-slate-4 active:bg-slate-4 p-1 rounded-md"
+                      aria-label="close popup"
+                      onclick={() => {
+                        setState(false);
+                      }}
+                    >
+                      <FiX class="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  <Show when={user()} fallback={<AuthButtons />}>
+                    <SigningForm user={user() as TokenPayload} />
+                  </Show>
+                </div>
+              </PopoverPanel>
+            </Transition>
+          </>
+        )}
       </Popover>
     </>
   );

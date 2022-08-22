@@ -1,5 +1,4 @@
-import { h } from "preact";
-import { FiGithub } from "react-icons/fi";
+import { FiGithub } from "solid-icons/fi";
 export const AuthButtons = () => {
   return (
     <button
@@ -13,13 +12,9 @@ export const AuthButtons = () => {
           window.location.href = res.url;
         }
       }}
-      className="mt-6 w-28 bg-slate-4 hover:bg-slate-5 p-2 font-bold flex flex-col items-center rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-5  "
+      class="mt-6 w-28 bg-slate-4 hover:bg-slate-5 p-2 font-bold flex flex-col items-center rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-5  "
     >
-      <FiGithub
-        /*
-      // @ts-ignore */
-        className="h-5 w-5"
-      />
+      <FiGithub class="h-5 w-5" />
       Github
     </button>
   );

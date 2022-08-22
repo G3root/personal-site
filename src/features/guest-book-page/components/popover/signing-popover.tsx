@@ -1,8 +1,7 @@
-import { h } from "preact";
 import { MAX_MESSAGE } from "~/constants";
 import type { TokenPayload } from "~/utils/auth";
-import { useRef } from "preact/hooks";
-import { increaseGmCount, setMessages, setUser } from "~/atoms";
+import { increaseGmCount, setUser } from "~/atoms";
+import { Show } from "solid-js";
 import { revalidateMessages } from "~/utils/dom";
 
 interface SigningFormProps {
@@ -10,29 +9,32 @@ interface SigningFormProps {
 }
 
 export default function SigningForm(props: SigningFormProps) {
-  const { user } = props;
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const isMaximumMessageCount = user.gm_count >= MAX_MESSAGE;
+  let p: DOMParser | undefined;
+  let inputRef: HTMLTextAreaElement;
+  const isMaximumMessageCount = () => props.user.gm_count >= MAX_MESSAGE;
   return (
-    <div className="mt-6">
-      {isMaximumMessageCount ? (
-        <div className="bg-yellow-4 p-2 rounded-md">
-          <p className="text-yellow-11 text-sm">
-            only {MAX_MESSAGE} messages can be signable by a user. try deleting
-            your existing messages
-          </p>
-        </div>
-      ) : (
+    <div class="mt-6">
+      <Show
+        when={!isMaximumMessageCount()}
+        fallback={
+          <div class="bg-yellow-4 p-2 rounded-md">
+            <p class="text-yellow-11 text-sm">
+              only {MAX_MESSAGE} messages can be signable by a user. try
+              deleting your existing messages
+            </p>
+          </div>
+        }
+      >
         <form
           onSubmit={async (e) => {
             e.preventDefault();
             const req = await fetch("/api/message", {
               method: "POST",
               body: JSON.stringify({
-                content: inputRef.current?.value,
+                content: inputRef.value,
               }),
             });
-            await req.json();
+            const res = await req.json();
 
             if (req.ok) {
               await revalidateMessages();
@@ -40,18 +42,13 @@ export default function SigningForm(props: SigningFormProps) {
               increaseGmCount();
             }
 
-            if (inputRef.current) {
-              inputRef.current.value = "";
-            }
+            inputRef.value = "";
           }}
         >
-          <fieldset
-            className="flex flex-col gap-y-3"
-            disabled={isMaximumMessageCount}
-          >
+          <fieldset class="flex flex-col gap-y-3">
             <textarea
-              ref={inputRef}
-              className="form-textarea bg-transparent rounded-md border border-slate-7 text-sm shadow-sm focus:outline-none focus:border-slate-9 focus:ring-slate-9 "
+              ref={inputRef!}
+              class="form-textarea bg-transparent rounded-md border border-slate-7 text-sm shadow-sm focus:outline-none focus:border-slate-9 focus:ring-slate-9 "
               name="message"
               id="message"
               maxLength={100}
@@ -62,22 +59,22 @@ export default function SigningForm(props: SigningFormProps) {
 
             <button
               type="submit"
-              className="rounded px-3 py-1 font-medium bg-green-4 text-green-11 hover:bg-green-6"
+              class="rounded px-3 py-1 font-medium bg-green-4 text-green-11 hover:bg-green-6"
             >
               sign
             </button>
           </fieldset>
         </form>
-      )}
+      </Show>
 
-      <div className="pt-2">
+      <div class="pt-2">
         <button
           onClick={async () => {
             await fetch("/api/auth/logout");
             await revalidateMessages();
             setUser(null);
           }}
-          className="rounded px-3 py-1 font-medium bg-red-4 text-red-11 hover:bg-red-6 w-full"
+          class="rounded px-3 py-1 font-medium bg-red-4 text-red-11 hover:bg-red-6 w-full"
         >
           Log Out
         </button>
