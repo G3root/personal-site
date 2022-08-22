@@ -46,7 +46,6 @@
     "nanoid": "^4.0.0",
     "nanostores": "^0.6.0",
     "preact": "^10.10.3",
-    "react-icons": "^4.4.0",
-    "waystone": "^0.2.6"
+    "react-icons": "^4.4.0"
   }
 }
