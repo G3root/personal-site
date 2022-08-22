@@ -34,3 +34,59 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
   </div>
 </div>
+
+<style is:global>
+  .sb-overflow-hidden {
+    overflow: hidden;
+  }
+
+  .sb-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes slide-down {
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  .sb-content {
+    background-color: var(--loContrast);
+    width: 100%;
+    animation: slide-up 0.2s ease;
+  }
+
+  .sb-content.sb-is-snapping {
+    transition: transform 0.2s ease;
+  }
+
+  .sb-content.sb-is-closing {
+    animation: slide-down 0.2s ease;
+  }
+
+  .sb-handle-container {
+    padding: 16px 0;
+    margin: 0 auto;
+  }
+
+  .sb-handle {
+    width: 60px;
+    height: 2px;
+    background-color: var(--hiContrast);
+    text-align: center;
+    margin: auto;
+  }
+</style>
