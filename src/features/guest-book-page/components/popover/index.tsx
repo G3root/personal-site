@@ -27,7 +27,7 @@ export default function GuestBookPopover(props: GuestBookPopoverProps) {
   });
   return (
     <>
-      <Popover defaultOpen={false} class="relative">
+      {/* <Popover defaultOpen={false} class="relative">
         {({ isOpen, setState }) => (
           <>
             <PopoverButton class="my-4 rounded bg-slate-4 hover:bg-slate-5 px-4 py-2 font-bold">
@@ -72,7 +72,7 @@ export default function GuestBookPopover(props: GuestBookPopoverProps) {
             </Transition>
           </>
         )}
-      </Popover>
+      </Popover> */}
     </>
   );
 }

@@ -4,7 +4,7 @@ export const NFT_CACHE_KEY = "nft";
 
 export const NAV_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/guestbook", label: "Guestbook" },
+  // { to: "/guestbook", label: "Guestbook" },
   { to: "/projects", label: "Projects" },
 ];
 
