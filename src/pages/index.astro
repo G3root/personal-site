@@ -1,18 +1,19 @@
 ---
 import Layout from "~/layouts/Layout.astro";
 import SocialLinks from "~/components/social-links/index.astro";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
+import PortraitImage from "../assets/image-2.jpg";
+export const prerender = true;
 ---
 
 <Layout title="Developer">
   <section class="flex flex-col sm:mb-0 mb-20">
     <div class="mb-4 sm:hidden block">
       <Image
-        format="webp"
-        src={import("../assets/image-2.jpg")}
-        class="rounded-full"
         width={80}
         height={80}
+        src={PortraitImage}
+        class="rounded-full"
         alt="potrait"
       />
     </div>
@@ -36,11 +37,11 @@ import { Image } from "@astrojs/image/components";
       </p>
 
       <p>
-        I'm currently working as a <u>Software Engineer Intern</u> at{" "}
+        I'm currently working looking for a
         <span
           class="underline decoration-hi-contrast underline-offset-2 decoration-dotted"
         >
-          TWC Innovations.
+          Junior developer role.
         </span>
       </p>
     </div>
