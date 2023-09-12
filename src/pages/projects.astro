@@ -5,7 +5,7 @@ import Layout from "~/layouts/Layout.astro";
 import { getAllProjects } from "~/features/projects-page/api/project";
 import ProjectList from "~/features/projects-page/components/project-list.astro";
 
-const projects = await getAllProjects();
+// const projects = []
 ---
 
 <Layout title="Projects">
@@ -14,6 +14,6 @@ const projects = await getAllProjects();
     <PageSubtitle
       content="List of projects I recently worked on and working on."
     />
-    <ProjectList data={projects} />
+    <!-- <ProjectList data={projects} /> -->
   </div>
 </Layout>
