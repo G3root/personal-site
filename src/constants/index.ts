@@ -6,7 +6,6 @@ export const NAV_LINKS = [
   { to: "/", label: "Home" },
   { to: "/guestbook", label: "Guestbook" },
   { to: "/projects", label: "Projects" },
-  { to: "/nft-gallery", label: "NFT Gallery" },
 ];
 
 export const MAXIMUM_THEME_INDEX = 7;
