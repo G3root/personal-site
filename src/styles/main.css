@@ -1,24 +1,24 @@
 @import "@radix-ui/colors/slate.css";
-@import "@radix-ui/colors/slateDark.css";
-@import "@radix-ui/colors/blackA.css";
-@import "@radix-ui/colors/whiteA.css";
+@import "@radix-ui/colors/slate-dark.css";
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/white-alpha.css";
 @import "@radix-ui/colors/blue.css";
-@import "@radix-ui/colors/blueDark.css";
+@import "@radix-ui/colors/blue-dark.css";
 @import "@radix-ui/colors/yellow.css";
-@import "@radix-ui/colors/yellowDark.css";
+@import "@radix-ui/colors/yellow-dark.css";
 @import "@radix-ui/colors/red.css";
-@import "@radix-ui/colors/redDark.css";
+@import "@radix-ui/colors/red-dark.css";
 @import "@radix-ui/colors/green.css";
-@import "@radix-ui/colors/greenDark.css";
+@import "@radix-ui/colors/green-dark.css";
 @import "@radix-ui/colors/orange.css";
-@import "@radix-ui/colors/orangeDark.css";
+@import "@radix-ui/colors/orange-dark.css";
 @import "@radix-ui/colors/pink.css";
-@import "@radix-ui/colors/pinkDark.css";
+@import "@radix-ui/colors/pink-dark.css";
 @import "@radix-ui/colors/violet.css";
-@import "@radix-ui/colors/violetDark.css";
+@import "@radix-ui/colors/violet-dark.css";
 
 :root {
-  --hiContrast: var(--slate12);
+  --hiContrast: var(--slate-12);
   --loContrast: white;
   --c-bg: #fff;
   --c-scrollbar: #eee;
