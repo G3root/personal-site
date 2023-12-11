@@ -45,8 +45,8 @@ const colors = createPlugin({
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,ts,tsx}"],
-  darkMode: ["class", ".dark-theme"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
@@ -59,10 +59,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms")({
-      strategy: "class", // only generate classes
-    }),
-    colors.plugin,
-  ],
+  plugins: [colors.plugin],
 };
