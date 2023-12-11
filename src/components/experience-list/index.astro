@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import ExperienceCard from "./experience-card.astro";
+
+const allExperiences = await getCollection("experiences");
+
+console.log({ allExperiences: allExperiences[0].data });
+---
+
+<section class="pb-5 md:pt-10">
+  <h3
+    data-animate
+    style="--stagger:3"
+    class="text-2xl font-extrabold tracking-tight md:text-4xl"
+  >
+    Experience
+  </h3>
+
+  <div class="flex flex-col gap-y-3 pt-5">
+    {allExperiences.map(({ data }) => <ExperienceCard {...data} />)}
+  </div>
+</section>

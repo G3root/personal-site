@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Data = CollectionEntry<"experiences">["data"];
+
+interface Props extends Data {}
+
+const { companyName, from, position, to } = Astro.props;
+---
+
+<li
+  data-animate
+  style="--stagger:4"
+  class="list-none py-4 px-3 hover:bg-slate-2 rounded-md"
+>
+  <div class="flex flex-wrap justify-between">
+    <div>
+      <h3 class="text-base font-semibold tracking-tight">
+        {companyName}
+      </h3>
+      <p class="text-sm tracking-tight text-slate-11">
+        {position}
+      </p>
+    </div>
+
+    <div class="text-xs text-slate-10">
+      {from} - {to}
+    </div>
+  </div>
+</li>
