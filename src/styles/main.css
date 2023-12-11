@@ -1,12 +1,12 @@
 :root {
-  --hiContrast: var(--slate-12);
+  --hiContrast: #1c2024;
   --loContrast: white;
   --c-bg: #fff;
   --c-scrollbar: #eee;
   --c-scrollbar-hover: #bbb;
 }
 
-.dark-theme {
+.dark {
   --hiContrast: white;
   --loContrast: black;
   --c-bg: #050505;
