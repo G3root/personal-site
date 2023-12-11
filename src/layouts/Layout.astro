@@ -98,8 +98,7 @@ const { title } = Astro.props as Props;
           ? "light"
           : "dark");
 
-      root.dataset.theme = theme === "light" ? "light" : "dark";
-      root.classList.add(`${theme}-theme`);
+      root.classList.add(theme);
       root.setAttribute("data-theme-index", appTheme);
     </script>
   </head>

@@ -21,14 +21,10 @@ import { Icon } from "astro-icon";
   const darkModeToggle = document.querySelector("#dark-mode-toggle");
 
   function toggleDarkMode() {
-    const isDarktheme = root.classList.contains("dark-theme");
-    if (isDarktheme) {
-      root.classList.remove("dark-theme");
-      root.classList.add("light-theme");
-    } else {
-      root.classList.add("dark-theme");
-      root.classList.remove("light-theme");
-    }
+    root.classList.toggle("dark");
+    root.classList.toggle("light");
+
+    const isDarktheme = root.classList.contains("dark");
     window.localStorage.setItem("theme", isDarktheme ? "light" : "dark");
   }
 
