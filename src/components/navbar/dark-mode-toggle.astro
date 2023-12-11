@@ -5,7 +5,7 @@ import { Icon } from "astro-icon";
 <button
   type="button"
   class="flex items-center p-1 rounded-md theme-btn"
-  aria-label="toggle dark mode"
+  aria-label="toggle dark/light mode"
   id="dark-mode-toggle"
 >
   <span class="dark:hidden block">
@@ -17,9 +17,10 @@ import { Icon } from "astro-icon";
 </button>
 
 <script>
+  const root = document.documentElement;
   const darkModeToggle = document.querySelector("#dark-mode-toggle");
+
   function toggleDarkMode() {
-    const root = document.documentElement;
     const isDarktheme = root.classList.contains("dark-theme");
     if (isDarktheme) {
       root.classList.remove("dark-theme");
@@ -28,15 +29,10 @@ import { Icon } from "astro-icon";
       root.classList.add("dark-theme");
       root.classList.remove("light-theme");
     }
-    const theme = JSON.parse(root.getAttribute("data-theme") as string);
-    document.cookie = `__theme_nfz=${JSON.stringify({
-      mode: isDarktheme ? "light-theme" : "dark-theme",
-      theme: theme.theme,
-    })}; SameSite=Lax; Secure; path=/`;
+    window.localStorage.setItem("theme", isDarktheme ? "light" : "dark");
   }
+
   if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", () => {
-      toggleDarkMode();
-    });
+    darkModeToggle.addEventListener("click", toggleDarkMode);
   }
 </script>

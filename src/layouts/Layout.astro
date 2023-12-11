@@ -1,37 +1,18 @@
 ---
 export interface Props {
   title: string;
-  maxThemeIndex?: number;
-  theme?: {
-    mode: "dark-theme" | "light-theme";
-    theme: number;
-  } | null;
 }
 import "~/styles/fonts.css";
 import "~/styles/main.css";
 import "~/styles/theme.scss";
 
 import Navbar from "~/components/navbar/index.astro";
-import { MAXIMUM_THEME_INDEX } from "~/constants";
-import { getThemeCookie } from "~/utils/theme";
 
-const theme_ = getThemeCookie(Astro.request.headers);
-
-const {
-  title,
-  maxThemeIndex = MAXIMUM_THEME_INDEX,
-  theme = theme_,
-} = Astro.props as Props;
+const { title } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  data-max-theme-index={maxThemeIndex}
-  data-theme={JSON.stringify(theme)}
-  class={theme?.mode ?? ""}
-  data-theme-index={theme?.theme ?? 0}
->
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Nafees Nazik - {title}</title>
@@ -97,19 +78,29 @@ const {
     <link rel="manifest" href="/static/site.webmanifest" />
     <link rel="icon" href="/favicon.ico" />
 
-    <script>
-      if (typeof window !== "undefined") {
-        const root = document.documentElement;
-        const theme = root.getAttribute("data-theme");
-        if (theme !== "null") {
-          document.cookie = `__theme_nfz=${theme}; SameSite=Lax; Secure; path=/`;
-        } else {
-          document.cookie = `__theme_nfz=${JSON.stringify({
-            mode: "light-theme",
-            theme: 0,
-          })}; SameSite=Lax; Secure; path=/`;
-        }
-      }
+    <script is:inline>
+      const root = document.documentElement;
+      const storedSiteTheme = localStorage?.getItem("theme");
+      const storedAppTheme = localStorage?.getItem("app-theme");
+
+      const isNumber = (value) => !isNaN(value);
+
+      const getAppTheme = (storedAppTheme) => {
+        const parsedTheme = Number(storedAppTheme);
+        return isNumber(parsedTheme) && parsedTheme <= 7 ? parsedTheme : 0;
+      };
+
+      const appTheme = getAppTheme(storedAppTheme);
+
+      const theme =
+        storedSiteTheme ||
+        (window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark");
+
+      root.dataset.theme = theme === "light" ? "light" : "dark";
+      root.classList.add(`${theme}-theme`);
+      root.setAttribute("data-theme-index", appTheme);
     </script>
   </head>
 
