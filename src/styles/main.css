@@ -14,10 +14,6 @@
   --c-scrollbar-hover: #222;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   color: var(--hiContrast);
   background-color: var(--loContrast);
