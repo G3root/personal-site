@@ -10,7 +10,7 @@ export interface Props {
 import "~/styles/fonts.css";
 import "~/styles/main.css";
 import "~/styles/theme.scss";
-import BottomNav from "~/components/bottom-nav/index.astro";
+
 import Navbar from "~/components/navbar/index.astro";
 import { MAXIMUM_THEME_INDEX } from "~/constants";
 import { getThemeCookie } from "~/utils/theme";
@@ -118,6 +118,5 @@ const {
     <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
       <slot />
     </main>
-    <BottomNav />
   </body>
 </html>
