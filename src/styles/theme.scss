@@ -1,8 +1,8 @@
 :root {
   --theme-bg: var(--hi-contrast);
   --theme-txt: var(--hi-contrast);
-  --theme-btn-act: var(--blue-5);
-  --theme-btn-hov: var(--blue-4);
+  --theme-btn-act: var(--blue5);
+  --theme-btn-hov: var(--blue4);
 }
 
 $colors: hiContrast blue yellow red green orange pink violet;
@@ -14,13 +14,13 @@ $colors: hiContrast blue yellow red green orange pink violet;
     @if $val ==hiContrast {
       --theme-bg: var(--#{$val});
       --theme-txt: var(--#{$val});
-      --theme-btn-act: var(--blue-5);
-      --theme-btn-hov: var(--blue-4);
+      --theme-btn-act: var(--blue5);
+      --theme-btn-hov: var(--blue4);
     } @else {
-      --theme-bg: var(--#{$val}-9);
-      --theme-txt: var(--#{$val}-11);
-      --theme-btn-act: var(--#{$val}-5);
-      --theme-btn-hov: var(--#{$val}-4);
+      --theme-bg: var(--#{$val}9);
+      --theme-txt: var(--#{$val}11);
+      --theme-btn-act: var(--#{$val}5);
+      --theme-btn-hov: var(--#{$val}4);
     }
   }
 }
@@ -32,7 +32,7 @@ $colors: hiContrast blue yellow red green orange pink violet;
 
 [aria-current="false"] {
   font-weight: 400;
-  color: var(--slate-11);
+  color: var(--slate11);
 }
 
 .theme-btn {
