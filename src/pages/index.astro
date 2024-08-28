@@ -1,52 +1,76 @@
 ---
-import Layout from "~/layouts/Layout.astro";
-import SocialLinks from "~/components/social-links/index.astro";
-import ExperienceList from "~/components/experience-list/index.astro";
-import { Image } from "astro:assets";
-import PortraitImage from "../assets/image-2.jpg";
+import MainLayout from "../layouts/main-layout.astro";
 ---
 
-<Layout title="Developer">
-  <section class="flex flex-col sm:mb-0 mb-20">
-    <div class="mb-4 sm:hidden block">
-      <Image
-        width={80}
-        height={80}
-        src={PortraitImage}
-        class="rounded-full"
-        alt="potrait"
-      />
-    </div>
-    <h1
-      data-animate
-      style="--stagger:1"
-      class="text-5xl font-extrabold tracking-tighter sm:text-7xl mb-4 max-w-3xl"
-    >
-      Developer with an appetite for interfaces and websites.
-    </h1>
-
-    <div
-      data-animate
-      style="--stagger:2"
-      class="font-mono flex flex-col gap-y-1 text-sm sm:text-base sm:max-w-xl max-w-72 text-slate11 text-slate11"
-    >
-      <p>
-        Hey, I’m Nafees Nazik <br />a Sri Lanka based UI developer. I love
-        working at the intersection of creativity and user friendly interfaces.
-        also a big Barça fan and football enthusiast.
-      </p>
-
-      <p>
-        I'm currently looking for a
-        <span
-          class="underline decoration-hi-contrast underline-offset-2 decoration-dotted"
+<MainLayout title="Developer">
+  <table class="header">
+    <tbody
+      ><tr>
+        <td colspan="2" rowspan="3" class="width-auto">
+          <h1 class="title">Nafees Nazik</h1>
+          <span class="subtitle">
+            Developer with an appetite for interfaces and websites.
+          </span>
+        </td>
+        <td class="width-min"
+          ><a href="https://www.linkedin.com/in/nafees-nazik">LinkedIn</a></td
         >
-          Junior developer role.
-        </span>
-      </p>
-    </div>
-    <SocialLinks />
-  </section>
+      </tr>
+      <tr>
+        <td class="width-min"><a href="https://twitter.com/nfs__21">X</a></td>
+      </tr>
+      <tr>
+        <td class="width-min"><a href="https://github.com/G3root">GitHub</a></td
+        >
+      </tr>
+    </tbody>
+  </table>
+  <nav id="TOC">
+    <h2 id="toc-title">Contents</h2>
+    <ul class="incremental">
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#experience">Experience</a></li>
+    </ul>
+  </nav>
 
-  <ExperienceList />
-</Layout>
+  <h2 id="introduction">Introduction</h2>
+  <p>
+    A developer who loves to create user-friendly and creative digital
+    experiences. I’m skilled in React, Node, and JavaScript frameworks, and I
+    enjoy bringing new ideas to life through code. I believe the best products
+    are those that are easy to use and nice to look at, and I work hard to
+    achieve this balance in everything I build.
+  </p>
+
+  <p>
+    I take pride in making complex things simple and creating interfaces that
+    people enjoy using. In addition to my regular work, I’m very involved in the
+    open-source community. I contribute to projects that I find interesting and
+    that help other developers. When I’m not coding, I like to keep up with the
+    latest trends in technology and experiment with new tools and techniques.
+  </p>
+
+  <h2 id="experience">Experience</h2>
+
+  <ul class="incremental">
+    <li>Cal.com, inc</li>
+    <ul class="incremental">
+      <li>Software Engineer Intern</li>
+      <li>Jan-2023 - Jun-2023</li>
+    </ul>
+  </ul>
+
+  <ul class="incremental">
+    <li>TWC innovations - Colombo</li>
+    <ul class="incremental">
+      <li>Software Engineer Intern</li>
+      <li>May-2022 - Dec-2022</li>
+    </ul>
+  </ul>
+  <hr />
+  <p>
+    Design <a href="https://github.com/owickstrom/the-monospace-web"
+      >THE MONOSPACE WEB</a
+    > by <a href="https://wickstrom.tech/">Oskar Wickström</a>
+  </p>
+</MainLayout>
