@@ -6,8 +6,6 @@ import "~/styles/fonts.css";
 import "~/styles/main.css";
 import "~/styles/theme.scss";
 
-import Navbar from "~/components/navbar/index.astro";
-
 const { title } = Astro.props as Props;
 ---
 
@@ -104,9 +102,6 @@ const { title } = Astro.props as Props;
   </head>
 
   <body>
-    <Navbar />
-    <main class="flex flex-col px-7 md:px-32 mb-10 sm:mb-0">
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
