@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.0.22
+        version: 5.0.22
       astro:
         specifier: ^4.14.6
         version: 4.14.6(@types/node@20.5.3)(rollup@4.21.1)(sass@1.69.5)(typescript@5.5.4)
@@ -309,6 +312,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/jetbrains-mono@5.0.22':
+    resolution: {integrity: sha512-2LZQFb37H9iUY92qrhqjvrrkBPROdmBy5MMDgQX+FGeHdVE2WwvGt4lOpxOAy0L/bwE2Y0UCe/eb/tOs1kaTYQ==}
 
   '@img/sharp-darwin-arm64@0.33.0':
     resolution: {integrity: sha512-070tEheekI1LJWTGPC9WlQEa5UoKTXzzlORBHMX4TbfUxMiL336YHR8vBEUNsjse0RJCX8dZ4ZXwT595aEF1ug==}
@@ -2389,6 +2395,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@fontsource-variable/jetbrains-mono@5.0.22': {}
 
   '@img/sharp-darwin-arm64@0.33.0':
     optionalDependencies:
