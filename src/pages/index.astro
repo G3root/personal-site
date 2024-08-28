@@ -1,29 +1,27 @@
 ---
+import DarkModeToggle from "~/components/dark-mode-toggle.astro";
 import MainLayout from "../layouts/main-layout.astro";
 ---
 
 <MainLayout title="Developer">
   <table class="header">
     <tbody>
-      <tr>
-        <td colspan="2" rowspan="3" class="width-auto">
+      <tr class="width-auto">
+        <td colspan="4" class="text-left">
           <h1 class="title">Nafees Nazik</h1>
           <span class="subtitle">
             Developer with an appetite for interfaces and websites.
           </span>
         </td>
-        <td class="width-min">
+      </tr>
+      <tr>
+        <td class="text-left">
+          <DarkModeToggle />
+        </td>
+        <td>
+          <a class="theme-btn" href="https://github.com/G3root">GitHub</a>
+          <a href="https://twitter.com/nfs__21">X.com</a>
           <a href="https://www.linkedin.com/in/nafees-nazik">LinkedIn</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="width-min">
-          <a href="https://twitter.com/nfs__21">X</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="width-min">
-          <a href="https://github.com/G3root">GitHub</a>
         </td>
       </tr>
     </tbody>

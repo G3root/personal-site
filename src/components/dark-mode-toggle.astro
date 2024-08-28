@@ -1,19 +1,9 @@
 ---
-import { Icon } from "astro-icon";
+
 ---
 
-<button
-  type="button"
-  class="flex items-center p-1 rounded-md theme-btn"
-  aria-label="toggle dark/light mode"
-  id="dark-mode-toggle"
->
-  <span class="dark:hidden block">
-    <Icon name="feather:moon" aria-hidden class="h-5 w-5" />
-  </span>
-  <span class="dark:block hidden">
-    <Icon name="feather:sun" aria-hidden class="h-5 w-5" />
-  </span>
+<button type="button" aria-label="toggle dark/light mode" id="dark-mode-toggle">
+  theme
 </button>
 
 <script>

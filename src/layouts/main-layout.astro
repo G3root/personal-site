@@ -6,7 +6,6 @@ export interface Props {
 import "@fontsource-variable/jetbrains-mono";
 import "~/styles/reset.css";
 import "~/styles/main.css";
-import "~/styles/theme.scss";
 
 const { title } = Astro.props as Props;
 ---
@@ -43,20 +42,7 @@ const { title } = Astro.props as Props;
     />
     <meta content="@NFS__21" name="twitter:creator" />
     <meta content="@NFS__21" name="twitter:site" />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/Inter-roman.var.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/jetbrain-regular.woff2"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+
     <link
       rel="icon"
       href="/static/favicon-32x32.png"
