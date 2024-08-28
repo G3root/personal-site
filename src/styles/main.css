@@ -371,3 +371,19 @@ label input {
 .text-left {
   text-align: left !important;
 }
+
+.inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+.dark .dark\:hidden {
+  display: none;
+}
+
+.dark .dark\:inline {
+  display: inline;
+}

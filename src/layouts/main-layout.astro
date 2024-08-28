@@ -67,16 +67,6 @@ const { title } = Astro.props as Props;
     <script is:inline>
       const root = document.documentElement;
       const storedSiteTheme = localStorage?.getItem("theme");
-      const storedAppTheme = localStorage?.getItem("app-theme");
-
-      const isNumber = (value) => !isNaN(value);
-
-      const getAppTheme = (storedAppTheme) => {
-        const parsedTheme = Number(storedAppTheme);
-        return isNumber(parsedTheme) && parsedTheme <= 7 ? parsedTheme : 0;
-      };
-
-      const appTheme = getAppTheme(storedAppTheme);
 
       const theme =
         storedSiteTheme ||
@@ -85,7 +75,6 @@ const { title } = Astro.props as Props;
           : "dark");
 
       root.classList.add(theme);
-      root.setAttribute("data-theme-index", appTheme);
     </script>
   </head>
 
