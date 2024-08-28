@@ -10,7 +10,7 @@
     "format": "prettier -w ."
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^5.0.3",
+    "@astrojs/tailwind": "^5.1.0",
     "@radix-ui/colors": "^3.0.0",
     "@types/node": "^20.5.3",
     "prettier": "^3.0.2",
@@ -20,7 +20,7 @@
     "windy-radix-palette": "^2.0.0-beta.7"
   },
   "dependencies": {
-    "astro": "^4.0.3",
+    "astro": "^4.14.6",
     "astro-icon": "^0.8.2",
     "sharp": "^0.33.0"
   }
